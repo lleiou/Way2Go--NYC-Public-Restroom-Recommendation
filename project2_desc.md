@@ -42,6 +42,7 @@ Stories
 - [i quant NY's blog](http://iquantny.tumblr.com/)
 - [chris whong's blog](http://chriswhong.com/)
 - [NYC taxi data](http://www.andresmh.com/nyctaxitrips/), some [exploration](http://hafen.github.io/taxi/#initial-exploration), a cool [visualization](http://nyctaxi.herokuapp.com/).
+- [Flowing data blog](http://flowingdata.com/)
 
 Tools
 
