@@ -19,7 +19,7 @@ NYCToilets <- as.data.frame(NYCToilets)
 ```
 
 ##Geocoding Latitude and Longitude
-```{r, message=FALSE}
+```{r, results="hide"}
 LLnew <- as.matrix(geocode(as.character(NYCToilets$Location[1:608]), output = c("latlon"),source = c("google", "dsk")))
 
 NYCToilets$Lat <- LLnew[1:608,2]
