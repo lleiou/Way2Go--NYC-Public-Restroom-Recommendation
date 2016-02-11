@@ -5,6 +5,6 @@ library(plyr)
 library(rjson)
 library(RDSTK)
 data_test<-c("3260 Henry Hudson Parkway, Bronx, NY 10463")
-geocode<- do.call(rbind, lapply(data, street2coordinates))
+geocode<- do.call(rbind, lapply(data_test, street2coordinates))
 geocode
 
