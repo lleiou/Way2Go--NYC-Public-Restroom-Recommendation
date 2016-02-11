@@ -9,7 +9,7 @@ output: html_document
 
 ##Establishing the Workbench
 ```{r, message=FALSE}
-library("ggmap")
+library(ggmap)
 ```
 
 ##Data Importation
