@@ -78,11 +78,12 @@ img {
 <h2>Importing and Renaming the Data</h2>
 <pre class="r"><code>info &lt;- fread(&quot;/Users/NMLJ/Downloads/2013_311_Service_Requests.csv&quot;, select=c(&quot;Agency Name&quot;,&quot;Complaint Type&quot;,&quot;Location Type&quot;, &quot;City&quot;, &quot;Facility Type&quot;, &quot;Latitude&quot;, &quot;Longitude&quot;))</code></pre>
 <pre><code>## 
-Read 4.3% of 1610646 rows
-Read 30.4% of 1610646 rows
-Read 55.9% of 1610646 rows
-Read 80.7% of 1610646 rows
-Read 1610646 rows and 7 (of 52) columns from 0.764 GB file in 00:00:06</code></pre>
+Read 0.0% of 1610646 rows
+Read 20.5% of 1610646 rows
+Read 38.5% of 1610646 rows
+Read 56.5% of 1610646 rows
+Read 78.9% of 1610646 rows
+Read 1610646 rows and 7 (of 52) columns from 0.764 GB file in 00:00:08</code></pre>
 <pre class="r"><code>info$Agency &lt;- as.factor(info$`Agency Name`)
 
 info$Complaint &lt;- as.factor(info$`Complaint Type`)
@@ -113,7 +114,7 @@ ParkProb$Complaint &lt;- as.factor(ParkProb$Complaint)
 
 ParkProb &lt;- na.exclude(ParkProb)
 
-write.csv(x=ParkProb, file=&quot;ParkProb.csv&quot;)</code></pre>
+write.csv(x=ParkProb, file=&quot;/Users/NMLJ/Desktop/GitHub/project2-group10/data/ParkProb.csv&quot;)</code></pre>
 </div>
 </div>
 
