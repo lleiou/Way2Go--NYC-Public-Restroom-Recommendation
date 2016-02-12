@@ -52,6 +52,6 @@ ParkProb$Complaint <- as.factor(ParkProb$Complaint)
 
 ParkProb <- na.exclude(ParkProb)
 
-write.csv(x=ParkProb, file="ParkProb.csv")
+write.csv(x=ParkProb, file="/Users/NMLJ/Desktop/GitHub/project2-group10/data/ParkProb.csv")
 ```
 
