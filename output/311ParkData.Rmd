@@ -5,7 +5,7 @@ date: "February 12, 2016"
 output: html_document
 ---
 
-#Importing Revelant 311 Data
+#Importing Relevant 311 Data
 
 ##Establishing the Workbench
 ```{r, message=FALSE}
@@ -50,7 +50,7 @@ ParkProb <- fread("/Users/NMLJ/Desktop/GitHub/project2-group10/data/infoFiltered
 
 ParkProb$Complaint <- as.factor(ParkProb$Complaint)
 
-summary(ParkProb)
+ParkProb <- na.exclude(ParkProb)
 
 write.csv(x=ParkProb, file="ParkProb.csv")
 ```
