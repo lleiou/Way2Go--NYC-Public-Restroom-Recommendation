@@ -5,7 +5,7 @@ date: "February 12, 2016"
 output: html_document
 ---
 
-#Importing Revelant 311 Data
+#Importing Relevant 311 Data
 
 ##Establishing the Workbench
 ```{r, message=FALSE}
