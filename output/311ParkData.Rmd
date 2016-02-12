@@ -50,7 +50,7 @@ ParkProb <- fread("/Users/NMLJ/Desktop/GitHub/project2-group10/data/infoFiltered
 
 ParkProb$Complaint <- as.factor(ParkProb$Complaint)
 
-summary(ParkProb)
+ParkProb <- na.exclude(ParkProb)
 
 write.csv(x=ParkProb, file="ParkProb.csv")
 ```

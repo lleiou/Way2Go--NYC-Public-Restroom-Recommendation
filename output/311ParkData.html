@@ -68,8 +68,8 @@ img {
 </div>
 
 
-<div id="importing-revelant-311-data" class="section level1">
-<h1>Importing Revelant 311 Data</h1>
+<div id="importing-relevant-311-data" class="section level1">
+<h1>Importing Relevant 311 Data</h1>
 <div id="establishing-the-workbench" class="section level2">
 <h2>Establishing the Workbench</h2>
 <pre class="r"><code>library(data.table)</code></pre>
@@ -78,10 +78,10 @@ img {
 <h2>Importing and Renaming the Data</h2>
 <pre class="r"><code>info &lt;- fread(&quot;/Users/NMLJ/Downloads/2013_311_Service_Requests.csv&quot;, select=c(&quot;Agency Name&quot;,&quot;Complaint Type&quot;,&quot;Location Type&quot;, &quot;City&quot;, &quot;Facility Type&quot;, &quot;Latitude&quot;, &quot;Longitude&quot;))</code></pre>
 <pre><code>## 
-Read 0.0% of 1610646 rows
-Read 27.3% of 1610646 rows
-Read 52.8% of 1610646 rows
-Read 78.2% of 1610646 rows
+Read 4.3% of 1610646 rows
+Read 30.4% of 1610646 rows
+Read 55.9% of 1610646 rows
+Read 80.7% of 1610646 rows
 Read 1610646 rows and 7 (of 52) columns from 0.764 GB file in 00:00:06</code></pre>
 <pre class="r"><code>info$Agency &lt;- as.factor(info$`Agency Name`)
 
@@ -111,16 +111,9 @@ NYCinfo &lt;- na.exclude(NYCinfo)</code></pre>
 
 ParkProb$Complaint &lt;- as.factor(ParkProb$Complaint)
 
-summary(ParkProb)</code></pre>
-<pre><code>##                    Complaint         Lat             Lon        
-##  Animal in a Park       :1424   Min.   :40.50   Min.   :-74.24  
-##  Homeless Encampment    : 166   1st Qu.:40.67   1st Qu.:-73.99  
-##  Maintenance or Facility:7288   Median :40.73   Median :-73.95  
-##  Noise - Park           :2938   Mean   :40.73   Mean   :-73.94  
-##                                 3rd Qu.:40.78   3rd Qu.:-73.91  
-##                                 Max.   :40.91   Max.   :-73.71  
-##                                 NA's   :6031    NA's   :6031</code></pre>
-<pre class="r"><code>write.csv(x=ParkProb, file=&quot;ParkProb.csv&quot;)</code></pre>
+ParkProb &lt;- na.exclude(ParkProb)
+
+write.csv(x=ParkProb, file=&quot;ParkProb.csv&quot;)</code></pre>
 </div>
 </div>
 
