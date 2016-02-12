@@ -1,0 +1,57 @@
+---
+title: "311 Park Data"
+author: "Nicole LaPointe Jameson"
+date: "February 12, 2016"
+output: html_document
+---
+
+#Importing Revelant 311 Data
+
+##Establishing the Workbench
+```{r, message=FALSE}
+library(data.table)
+```
+
+##Importing and Renaming the Data
+
+```{r, message=FALSE}
+info <- fread("/Users/NMLJ/Downloads/2013_311_Service_Requests.csv", select=c("Agency Name","Complaint Type","Location Type", "City", "Facility Type", "Latitude", "Longitude"))
+
+info$Agency <- as.factor(info$`Agency Name`)
+
+info$Complaint <- as.factor(info$`Complaint Type`)
+
+info$Location <- as.factor(info$`Location Type`)
+
+info$City <- as.character(info$City)
+
+info$Facility <- as.factor(info$`Facility Type`)
+
+info$Lat <- info$Latitude
+info$Lon <- info$Longitude
+```
+
+Using Excel Filters, I then manually deleted redunant and unnessesary columns
+
+##Filtering and Cleaning
+```{r, message=FALSE}
+NYCinfo <- read.csv("/Users/NMLJ/Desktop/GitHub/project2-group10/data/infoFiltered.csv", header=TRUE, skipNul = TRUE)
+
+#NA's Removed
+NYCinfo <- na.exclude(NYCinfo)
+```
+
+## The Final Data Set
+
+This set only includes complaints within Public Parks or Playgrounds, and is factored by type of complaint: Animals in the park, homeless encampment, need for maintenance or facilities, and noise, all which could affect your bathroom-going experience.
+
+```{r}
+ParkProb <- fread("/Users/NMLJ/Desktop/GitHub/project2-group10/data/infoFiltered.csv", select = c("Complaint", "Lat","Lon"))
+
+ParkProb$Complaint <- as.factor(ParkProb$Complaint)
+
+summary(ParkProb)
+
+write.csv(x=ParkProb, file="ParkProb.csv")
+```
+
