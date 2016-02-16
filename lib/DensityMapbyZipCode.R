@@ -1,3 +1,11 @@
+#this part requires R-pacakge choroplethrzip, to install the package,type in 
+#following lines:
+#install.packages("devtools")
+#library(devtools)
+#install_github('arilamstein/choroplethrZip@v1.4.0')
+
+
+
 # New York City is comprised of 5 counties: Bronx, Kings (Brooklyn), New York (Manhattan), 
 # Queens, Richmond (Staten Island). Their numeric FIPS codes are:
 library(choroplethr)
