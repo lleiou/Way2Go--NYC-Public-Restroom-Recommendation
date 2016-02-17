@@ -6,10 +6,8 @@ name <-data$Name
 location <- data$Location
 
 #separate the location name(bold) and the address(italic) into two lines
-
 name <- paste("<b>",name,"</b>")
 location <- paste("<i>",location,"</i>")
-               
 content <- paste( name, location, sep =  "<br/>")
 
 
@@ -21,10 +19,6 @@ ToiletIcon <- makeIcon(
   iconAnchorX = 10, iconAnchorY = 0,
 )
 
+#Draw the map, show the location of all the toilets in NYC, w/ popup tag
 leaflet(data) %>% addTiles() %>%
   addMarkers(~Lon, ~Lat, popup = content, icon=ToiletIcon)
-
-#There's a problem with the outcome, 
-#which is: the popup tag was shown under the toilet icon, 
-#instead of the top, which is what we expected.
-
