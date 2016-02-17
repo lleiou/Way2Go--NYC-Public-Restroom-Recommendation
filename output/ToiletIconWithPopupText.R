@@ -10,7 +10,6 @@ name <- paste("<b>",name,"</b>")
 location <- paste("<i>",location,"</i>")
 content <- paste( name, location, sep =  "<br/>")
 
-
 #set parameters for the icon
 #the iconAnchor is used for setting the position of the tag when you click on the toilet botton.
 ToiletIcon <- makeIcon(
