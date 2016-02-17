@@ -1,6 +1,11 @@
 library(shinydashboard)
 library(shinyapps)
 library(shiny)
+library(dplyr)
+library(leaflet)
+library(data.table)
+
+
 div(class = "my-class", "Div content")
 div(class = "my-class", p("Paragraph text"))
 header<-dashboardHeader(title = "Simple Shiny")
@@ -25,14 +30,20 @@ body<-dashboardBody(
                                         
                                         box(
                                                 title = "Controls", status = "warning", solidHeader = TRUE,
+                                                #inputId="slider"
                                                 sliderInput("slider", "Number of observations:", 1, 100, 50),
                                                 textInput("text", "Text input:")
                                             )
                                 )
                         ),
                         
-                        # Second tab content
-                        tabItem(tabName = "widgets",h2("Widgets tab content")),
+                        # Second tab content:
+                        tabItem(tabName = "widgets", 
+                                fluidRow(
+                                        leafletOutput("mymap"),
+                                p(),
+                                actionButton("recalc", "New points"))
+                                ),
                         #Third tab content
                         tabItem(tabName = "summary",
                                 fluidRow(
@@ -55,6 +66,14 @@ server <- function(input, output) {
                 })
         output$stats<-renderPrint ({
                         summary(histdata)       
+        })
+        output$mymap <- renderLeaflet({
+                data<-fread("NYCT.csv")
+                leaflet(data) %>%
+                        #sets the center of the map view and the zoom level;
+                        setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=11) %>% 
+                        addTiles() %>%
+                        addMarkers(popup = ~htmlEscape(Location))#
         })
 }
 
