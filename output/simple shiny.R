@@ -1,6 +1,11 @@
 library(shinydashboard)
 library(shinyapps)
 library(shiny)
+library(dplyr)
+library(leaflet)
+library(data.table)
+
+
 div(class = "my-class", "Div content")
 div(class = "my-class", p("Paragraph text"))
 header<-dashboardHeader(title = "Simple Shiny")
