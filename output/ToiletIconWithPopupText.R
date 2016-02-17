@@ -14,10 +14,12 @@ content <- paste( name, location, sep =  "<br/>")
 #the iconAnchor is used for setting the position of the tag when you click on the toilet botton.
 ToiletIcon <- makeIcon(
   iconUrl = "http://icons.iconarchive.com/icons/icons8/ios7/512/Household-Toilet-Pan-icon.png",
-  iconWidth = 38, iconHeight = 50,
+  iconWidth = 20, iconHeight = 25,
   iconAnchorX = 10, iconAnchorY = 0,
 )
 
 #Draw the map, show the location of all the toilets in NYC, w/ popup tag
-leaflet(data) %>% addTiles() %>%
-  addMarkers(~Lon, ~Lat, popup = content, icon=ToiletIcon)
+leaflet(data) %>% 
+              addTiles() %>%
+              setView(lng = -74.0, lat = 40.71, zoom = 10) %>% 
+              addMarkers(~Lon, ~Lat, popup = content, icon=ToiletIcon)
