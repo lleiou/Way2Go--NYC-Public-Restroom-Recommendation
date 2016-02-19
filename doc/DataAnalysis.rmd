@@ -23,6 +23,8 @@ insert map here
 
 here we can see that XXX places has the most restrooms, whereas ... has less room in every unit area.
 
+
+####How many public restroom does everyone own?
 However, more restrooms in every unit area doesn't guarantee people can use the restroom at ease. For those of the place which has tourists attractions, the poplulation is higher, so the demand of the restrooms is higher too, thus it makes more sense fot us to compare the number of restrooms in every square meter per person:
 
 ```{r}
