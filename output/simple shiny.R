@@ -6,6 +6,7 @@ library(leaflet)
 library(data.table)
 library(rgeos)
 library(rgdal)
+library(ggmap)
 
 div(class = "my-class", "Div content")
 div(class = "my-class", p("Paragraph text"))
@@ -71,6 +72,7 @@ server <- function(input, output) {
         output$stats<-renderPrint ({
                         summary(histdata)       
         })
+       d_test<-geocode("3260 Henry Hudson Parkway,Bronx")
        content <- paste(sep ="<br/>","3260 Henry Hudson Parkway","Bronx,NY 10463")
        point<-reactive({geocode(input$address)
         })
