@@ -4,7 +4,8 @@ library(shiny)
 library(dplyr)
 library(leaflet)
 library(data.table)
-
+library(rgeos)
+library(rgdal)
 
 div(class = "my-class", "Div content")
 div(class = "my-class", p("Paragraph text"))
@@ -42,7 +43,10 @@ body<-dashboardBody(
                                 fluidRow(
                                         leafletOutput("mymap"),
                                 p(),
-                                actionButton("recalc", "New points"))
+                                actionButton("recalc", "New points"),
+                                textInput("address", "Address:"),
+                                textInput("range","Choose a range:")
+                                )
                                 ),
                         #Third tab content
                         tabItem(tabName = "summary",
@@ -67,13 +71,41 @@ server <- function(input, output) {
         output$stats<-renderPrint ({
                         summary(histdata)       
         })
+       content <- paste(sep ="<br/>","3260 Henry Hudson Parkway","Bronx,NY 10463")
+       point<-reactive({geocode(input$address)
+        })
         output$mymap <- renderLeaflet({
                 data<-fread("NYCT.csv")
-                leaflet(data) %>%
+                #run if we get address put in else show my address 
+                if (input$address == "") {
+                 leaflet(data) %>%
                         #sets the center of the map view and the zoom level;
                         setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=11) %>% 
                         addTiles() %>%
-                        addMarkers(popup = ~htmlEscape(Location))#
+                        addMarkers(popup = ~htmlEscape(Location))%>%
+                        addPopups(d_test$lon, d_test$lat, content,
+                                  options = popupOptions(closeButton = FALSE))
+                }
+                else {
+                        if (input$range == ""){
+                        leaflet(data) %>%
+                                #sets the center of the map view and the zoom level;
+                                setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=11) %>% 
+                                addTiles() %>%
+                                addMarkers(popup = ~htmlEscape(Location))%>%
+                                addPopups(geocode(input$address)$lon, geocode(input$address)$lat, input$address,
+                                          options = popupOptions(closeButton = FALSE))
+                        }
+                        else {
+                                leaflet(data) %>%
+                                        #sets the center of the map view and the zoom level;
+                                        setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=11) %>% 
+                                        addTiles() %>%
+                                        addMarkers(popup = ~htmlEscape(Location))%>%
+                                        addPopups(geocode(input$address)$lon, geocode(input$address)$lat, input$address,
+                                                  options = popupOptions(closeButton = FALSE))
+                        }
+                }
         })
 }
 
