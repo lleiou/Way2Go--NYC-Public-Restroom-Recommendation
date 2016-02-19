@@ -41,16 +41,16 @@ Here we choose some factors that interest us: population of every borough, GDP o
 We draw a scatterplot matrix at first, and then get rid of the factors that doesn't show strong coorelation with the density of the toilet.
 
 
-
+###The conclusion
 To sum up, we find a genral pattern for the distribution of the public restrooms in NYC, which means most of the places that follow this pattern could satisfy the need for people finding the restroom. 
 
+###Our suggestion
 It is worthy to pay attention to the putliers of this plot, which doesn't fit well to the pattern, so for xxx place, this place has a very low onwership of the restroom per person, we might suggest the local government to build more toilet in this area.
 
+
+###Beyond Analysis and visualization
 Above is our analysis of the restroom data, since we have already known well about the its relationship with many other factors, we might want to take advantage of it. Thus, we created a recommendation system for people outdoors in NYC, by inputing some key factors we have mentioned above, we can help the user to go to a satisfying restroom as soon as possible.
 
 We even give it a name:...
 
 Here's what it looks like:
-
-
-
