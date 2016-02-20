@@ -22,16 +22,16 @@ server <- function(input, output) {
                                 addPopups(d_test$lon, d_test$lat, content,
                                           options = popupOptions(closeButton = FALSE))
                 }
-                else {
-                        if (input$range == ""){
-                                leaflet(data) %>%
-                                        #sets the center of the map view and the zoom level;
-                                        setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=11) %>% 
-                                        addTiles() %>%
-                                        addMarkers(popup = ~htmlEscape(Location))%>%
-                                        addPopups(geocode(input$address)$lon, geocode(input$address)$lat, input$address,
-                                                  options = popupOptions(closeButton = FALSE))
-                        }
+#                 else {
+#                         if (input$range == ""){
+#                                 leaflet(data) %>%
+#                                         #sets the center of the map view and the zoom level;
+#                                         setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=11) %>% 
+#                                         addTiles() %>%
+#                                         addMarkers(popup = ~htmlEscape(Location))%>%
+#                                         addPopups(geocode(input$address)$lon, geocode(input$address)$lat, input$address,
+#                                                   options = popupOptions(closeButton = FALSE))
+#                         }
                         else {
                                 leaflet(data) %>%
                                         #sets the center of the map view and the zoom level;
@@ -41,6 +41,5 @@ server <- function(input, output) {
                                         addPopups(geocode(input$address)$lon, geocode(input$address)$lat, input$address,
                                                   options = popupOptions(closeButton = FALSE))
                         }
-                }
         })
 }
