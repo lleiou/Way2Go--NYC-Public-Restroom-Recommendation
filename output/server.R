@@ -1,45 +1,46 @@
 server <- function(input, output) {
         set.seed(122)
-        histdata <- rnorm(500)
-        output$plot1 <- renderPlot({data <- histdata[seq_len(input$slider)]
-        hist(data)
-        })
-        output$stats<-renderPrint ({
-                summary(histdata)       
-        })
+        d_test<-geocode("3260 Henry Hudson Parkway,Bronx")
         content <- paste(sep ="<br/>","3260 Henry Hudson Parkway","Bronx,NY 10463")
-        point<-reactive({geocode(input$address)
+        my_address<-eventReactive(input$go,{input$address})
+        
+        output$map_output <- renderLeaflet({map})
+        observe({
+                code<-geocode(my_address())
+                leafletProxy("map_output") %>%
+                        clearPopups()%>%
+                        #run if we get address put in else show my address 
+                        setView(code$lon, code$lat,zoom=14)%>%
+                        addPopups(code$lon, code$lat,my_address(), 
+                                  options = popupOptions(closeButton = FALSE))
+                
         })
-        output$mymap <- renderLeaflet({
-                data<-fread("NYCT.csv")
-                #run if we get address put in else show my address 
-                if (input$address == "") {
-                        leaflet(data) %>%
-                                #sets the center of the map view and the zoom level;
-                                setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=11) %>% 
-                                addTiles() %>%
-                                addMarkers(popup = ~htmlEscape(Location))%>%
-                                addPopups(d_test$lon, d_test$lat, content,
-                                          options = popupOptions(closeButton = FALSE))
-                }
-#                 else {
-#                         if (input$range == ""){
-#                                 leaflet(data) %>%
-#                                         #sets the center of the map view and the zoom level;
-#                                         setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=11) %>% 
-#                                         addTiles() %>%
-#                                         addMarkers(popup = ~htmlEscape(Location))%>%
-#                                         addPopups(geocode(input$address)$lon, geocode(input$address)$lat, input$address,
-#                                                   options = popupOptions(closeButton = FALSE))
-#                         }
-                        else {
-                                leaflet(data) %>%
-                                        #sets the center of the map view and the zoom level;
-                                        setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=11) %>% 
-                                        addTiles() %>%
-                                        addMarkers(popup = ~htmlEscape(Location))%>%
-                                        addPopups(geocode(input$address)$lon, geocode(input$address)$lat, input$address,
-                                                  options = popupOptions(closeButton = FALSE))
-                        }
-        })
+      
+        
+        
+                tdata_sub<-tdata[,7:8] 
+        tdata_sub1<-tdata_sub[,c(2,1)]
+        
+        # range_1<-eventReactive(input$refresh,{input$range})
+        
+        output$map_output<- renderLeaflet({
+                newdata<-subset(tdata,distHaversine(d_test,tdata_sub1) <= input$range)
+                map %>%
+        
+        # observe({ 
+                       
+                        #leafletProxy("map_output") %>%
+                        #clearPopups()%>%
+                        #run if we get address put in else show my address 
+                        setView(d_test$lon, d_test$lat,zoom=10)%>%
+                        hideGroup("Restrooms")%>%
+                        addMarkers(data =newdata,icon=ToiletIcon)%>%
+                        addCircles(d_test$lon, d_test$lat,
+                                         radius = input$range,color="red")
+#                         addPopups(d_test$lon, d_test$lat,
+#                                   options = popupOptions(closeButton = FALSE))
+                
+        # })
+})
 }
+

@@ -1,5 +1,6 @@
 library(shinydashboard)
 library(shiny)
+<<<<<<< HEAD
 library(ggmap)
 #library(dplyr)
 library(leaflet)
@@ -7,6 +8,14 @@ library(data.table)
 #library(rgeos)
 #ibrary(rgdal)
 #library(ggmap)
+=======
+library(dplyr)
+library(leaflet)
+library(data.table)
+library(rgeos)
+library(rgdal)
+library(ggmap)
+>>>>>>> master
 
 div(class = "my-class", "Div content")
 div(class = "my-class", p("Paragraph text"))
