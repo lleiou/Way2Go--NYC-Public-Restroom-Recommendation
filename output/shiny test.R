@@ -1,10 +1,11 @@
 library(shinydashboard)
 library(shiny)
+library(ggmap)
 #library(dplyr)
 library(leaflet)
 library(data.table)
 #library(rgeos)
-l#ibrary(rgdal)
+#ibrary(rgdal)
 #library(ggmap)
 
 div(class = "my-class", "Div content")
@@ -76,9 +77,6 @@ server <- function(input, output) {
                      options = popupOptions(closeButton = FALSE))
            
        })
-       
-       
-       
        
        
 }
