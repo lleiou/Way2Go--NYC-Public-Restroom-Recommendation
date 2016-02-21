@@ -7,6 +7,7 @@ library(rgeos)
 library(rgdal)
 library(ggmap)
 library(geosphere)
+library(DT)
 
 header <- dashboardHeader(title = "Search for Restroom!")
 siderbar<-dashboardSidebar(
@@ -24,9 +25,8 @@ body <- dashboardBody(
                             fluidRow(
                                      column(width = 9,
                                             box(width = NULL, solidHeader = TRUE,leafletOutput("map_output", height = 500)
-                                                ),
-                                            box(width = NULL,uiOutput("restroomTable")
                                                 )
+                                            
                                             ),
                                      column(width = 3,
                                            box(width = NULL, status = "warning",

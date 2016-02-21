@@ -17,18 +17,18 @@ server <- function(input, output) {
                         clearGroup("newdata")%>%
                         #run if we get address put in else show my address 
                         setView(code$lon, code$lat,zoom=11)%>%
-                        addPopups(code$lon, code$lat,my_address(), 
-                                  options = popupOptions(closeButton = FALSE))%>%
+                        addPopups(code$lon, code$lat,"I'm Here", 
+                                  options = popupOptions(closeButton = TRUE))%>%
                         hideGroup("Restrooms")%>%
                         
-                      
-                        addMarkers(data =newdata,icon=ToiletIcon,group = "newdata")%>%
-                        addCircles(code$lon, code$lat,
-                                    
-                                  radius = input$range,color="red",group = "newdata")
                         
+                        addMarkers(data =newdata,icon=ToiletIcon,group = "newdata",popup = ~htmlEscape(Location))%>%
+                        addCircles(code$lon, code$lat,radius = input$range,color="red",group = "newdata")
                 
-                })
+                
+        })
         
 }
+             
+
 
