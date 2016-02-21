@@ -17,24 +17,30 @@ server <- function(input, output) {
         })
       
         
-#         
-#                 tdata_sub<-tdata[,7:8] 
-#         tdata_sub1<-tdata_sub[,c(2,1)]
-#         range<- as.numeric(input$range)
-#         range_1<-eventReactive(input$refresh,{input$range})
-#         
-#         output$map_output<- renderLeaflet({map})
-#         
-#         observe({ 
-#                         newdata<-subset(tdata,distHaversine(code,tdata_sub1) <=range_1())
-#                         leafletProxy("map_output") %>%
-#                         clearPopups()%>%
-#                         #run if we get address put in else show my address 
-#                         setView(code$lon, code$lat,zoom=14)%>%
-#                         hideGroup("Restrooms")%>%
-#                         addMarkers(data =newdata, group = "Restrooms",popup = content, icon=ToiletIcon)%>%
-#                         addPopups(code$lon, code$lat,my_address(), 
+        
+                tdata_sub<-tdata[,7:8] 
+        tdata_sub1<-tdata_sub[,c(2,1)]
+        
+        # range_1<-eventReactive(input$refresh,{input$range})
+        
+        output$map_output<- renderLeaflet({
+                newdata<-subset(tdata,distHaversine(d_test,tdata_sub1) <= input$range)
+                map %>%
+        
+        # observe({ 
+                       
+                        #leafletProxy("map_output") %>%
+                        #clearPopups()%>%
+                        #run if we get address put in else show my address 
+                        setView(d_test$lon, d_test$lat,zoom=10)%>%
+                        hideGroup("Restrooms")%>%
+                        addMarkers(data =newdata,icon=ToiletIcon)%>%
+                        addCircles(d_test$lon, d_test$lat,
+                                         radius = input$range,color="red")
+#                         addPopups(d_test$lon, d_test$lat,
 #                                   options = popupOptions(closeButton = FALSE))
-#                 
-#         })
-        }
+                
+        # })
+})
+}
+

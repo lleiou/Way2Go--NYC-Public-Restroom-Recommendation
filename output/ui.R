@@ -7,6 +7,7 @@ library(data.table)
 library(rgeos)
 library(rgdal)
 library(ggmap)
+library(geosphere)
 
 header <- dashboardHeader(title = "Search for Restroom!")
 siderbar<-dashboardSidebar(
@@ -33,15 +34,15 @@ body <- dashboardBody(
                            actionButton("go", "Go!"),
                            p("Click the button to update the value displayed in the main panel.")),
                         box(width = NULL, status = "warning",
-                           
-                           selectInput("range","Choose a range",choices=c(
-                                   "100 m" = 100,
-                                   "200 m" = 200,
-                                   "300 m" = 300,
-                                   "400 m" = 400,
-                                   "500 m" = 500,
-                                   "1000 m" = 1000),
-                                   selected = NULL ),
+                            sliderInput("range", "Choose a range", 1, 100000, 5000),
+#                            selectInput("range","Choose a range",choices=c(
+#                                    "100 m" = 100,
+#                                    "200 m" = 200,
+#                                    "300 m" = 300,
+#                                    "400 m" = 400,
+#                                    "500 m" = 500,
+#                                    "1000 m" = 1000),
+#                                    selected = NULL ),
                            actionButton("refresh", "Refresh!"))
                        
                        
