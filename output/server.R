@@ -4,6 +4,7 @@ server <- function(input, output) {
         content <- paste(sep ="<br/>","3260 Henry Hudson Parkway","Bronx,NY 10463")
         my_address<-eventReactive(input$go,{input$address})
         
+        
         output$map_output <- renderLeaflet({map})
         observe({
                 code<-geocode(my_address())
@@ -25,6 +26,7 @@ server <- function(input, output) {
         
         output$map_output<- renderLeaflet({
                 newdata<-subset(tdata,distHaversine(d_test,tdata_sub1) <= input$range)
+                output$table <- DT::renderDataTable(DT::datatable(data <-newdata))
                 map %>%
         
         # observe({ 
@@ -32,7 +34,7 @@ server <- function(input, output) {
                         #leafletProxy("map_output") %>%
                         #clearPopups()%>%
                         #run if we get address put in else show my address 
-                        setView(d_test$lon, d_test$lat,zoom=10)%>%
+                        setView(d_test$lon, d_test$lat,zoom=11)%>%
                         hideGroup("Restrooms")%>%
                         addMarkers(data =newdata,icon=ToiletIcon)%>%
                         addCircles(d_test$lon, d_test$lat,

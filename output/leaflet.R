@@ -4,7 +4,7 @@ library(leaflet)
 library(htmltools)
 
 tdata<-read.csv("NYCT.csv")
-wifidata<-fread("nycwifi.csv")
+wifidata<-read.csv("nycwifi.csv")
 
 
 
