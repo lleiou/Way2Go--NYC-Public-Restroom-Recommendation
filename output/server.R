@@ -1,7 +1,14 @@
 server <- function(input, output) {
         set.seed(122)
         d_test<-geocode("3260 Henry Hudson Parkway,Bronx")
-        content <- paste(sep ="<br/>","3260 Henry Hudson Parkway","Bronx,NY 10463")
+        name1 <-newdata$Name
+        location1 <- newdata$Location
+        handicap1<-newdata$Handicap
+        #separate the location name(bold) and the address(italic) into two lines
+        name1 <- paste("<b>",name1,"</b>")
+        location1 <- paste("<i>",location1,"</i>")
+        handicap1 <- paste("<i>","handicap:",handicap1,"</i>")
+        content1 <- paste(sep =  "<br/>",name1,location1,handicap1 )
         my_address<-eventReactive(input$go,{input$address})
         
         
@@ -20,13 +27,15 @@ server <- function(input, output) {
                         addPopups(code$lon, code$lat,"I'm Here", 
                                   options = popupOptions(closeButton = TRUE))%>%
                         hideGroup("Restrooms")%>%
+                
+
                         
-                        
-                        addMarkers(data =newdata,icon=ToiletIcon,group = "newdata",popup = ~htmlEscape(Location))%>%
+                        addMarkers(data =newdata,icon=ToiletIcon,group = "newdata",popup=content1)%>%
                         addCircles(code$lon, code$lat,radius = input$range,color="red",group = "newdata")
                 
                 
         })
+        output$plot2<-renderLeaflet({map3})
         
 }
              
