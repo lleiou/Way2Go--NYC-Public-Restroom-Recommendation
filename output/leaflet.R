@@ -10,11 +10,12 @@ wifidata<-read.csv("nycwifi.csv")
 
 name <-tdata$Name
 location <- tdata$Location
-
+handicap<-tdata$Handicap
 #separate the location name(bold) and the address(italic) into two lines
 name <- paste("<b>",name,"</b>")
 location <- paste("<i>",location,"</i>")
-content <- paste( name, location, sep =  "<br/>")
+handicap <- paste("<i>","handicap:",handicap,"</i>")
+content <- paste( name,location,handicap, sep =  "<br/>")
 
 #set parameters for the icon
 #the iconAnchor is used for setting the position of the tag when you click on the toilet botton.
