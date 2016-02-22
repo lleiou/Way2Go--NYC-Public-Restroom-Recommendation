@@ -6,7 +6,7 @@ library(ggplot2)  # for plotting
 library(acs)
 library(tigris)
 library(stringr)
-
+library(rjson)
 #create a sp objective of NY....
 tracts=tracts(state="NY",county = c(5, 47, 61, 81, 85), cb=TRUE)
 
