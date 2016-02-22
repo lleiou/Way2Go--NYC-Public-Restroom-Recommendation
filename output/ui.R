@@ -12,9 +12,11 @@ library(DT)
 header <- dashboardHeader(title = "Search for Restroom!")
 siderbar<-dashboardSidebar(
         sidebarMenu(
-                menuItem("Map", tabName = "map", icon = icon("fa fa-map")),
-                menuItem("Chart",tabName = "chart", icon = icon("fa fa-bar-chart"), 
-                         badgeLabel = "new", badgeColor = "green")
+                menuItem("Map", tabName = "map", icon = icon("fa fa-map"),badgeLabel = "TryMe!", badgeColor = "green"),
+                menuItem("Statistic Analysis",tabName = "stats", icon = icon("fa fa-bar-chart"), 
+                         
+                         menuSubItem("Chart1",tabName = "chart1"),
+                         menuSubItem("CHart2",tabName = "chart2"))
                    )
                           )
 body <- dashboardBody(
@@ -35,7 +37,8 @@ body <- dashboardBody(
                                                  p("Click the button to update the value displayed in the main panel.") 
                                             ),
                                             box(width = NULL, status = "warning",
-                                                 sliderInput("range", "Choose a range", 1, 50000,5000)
+                                                 sliderInput("range", "Choose a range", 1, 2000,1000),
+                                                p("Distance in meter")
                         
                                              )
                                      )
@@ -43,8 +46,20 @@ body <- dashboardBody(
                           fluidRow(box(title = "table",width=800,DT::dataTableOutput("table")) )           
                          ),
         #Second tab Item
-              tabItem(tabName = "chart")
+              tabItem(tabName = "chart1",
+                      fluidRow(
+                              tabBox(
+                                      title = "",
+                                      # The id lets us use input$tabset1 on the server to find the current tab
+                                      id = "tabset1", 
+                                      tabPanel("Tab1", "First tab content"),
+                                      tabPanel("Tab2", "Tab content 2"),
+                                      tabPanel("Tab3", "Tab content 3")
+                              )
+                            
+                      )
         )
+)
 )
 
 ui<-dashboardPage(header,siderbar,body, title = "Simple Shiny",skin="purple")
