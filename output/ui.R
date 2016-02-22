@@ -1,5 +1,4 @@
 library(shinydashboard)
-library(shinyapps)
 library(shiny)
 library(dplyr)
 library(leaflet)
@@ -8,60 +7,58 @@ library(rgeos)
 library(rgdal)
 library(ggmap)
 library(geosphere)
+library(DT)
 
 header <- dashboardHeader(title = "Search for Restroom!")
 siderbar<-dashboardSidebar(
         sidebarMenu(
-                menuItem("Map", tabName = "map", icon = icon("fa fa-map")),
-                menuItem("Chart",tabName = "chart", icon = icon("fa fa-bar-chart"), 
-                         badgeLabel = "new", badgeColor = "green")
+                menuItem("Map", tabName = "map", icon = icon("fa fa-map"),badgeLabel = "TryMe!", badgeColor = "green"),
+                menuItem("Statistic Analysis",tabName = "stats", icon = icon("fa fa-bar-chart"), 
+                         
+                         menuSubItem("Chart1",tabName = "chart1"),
+                         menuSubItem("CHart2",tabName = "chart2"))
                    )
                           )
 body <- dashboardBody(
-        tabItems(
-        # First tab content
-        tabItem(tabName = "map",
-        fluidRow(
-                column(width = 9,
-                       box(width = NULL, solidHeader = TRUE,
-                           leafletOutput("map_output", height = 500)),
-                       box(width = NULL,
-                            uiOutput("restroomTable")
-                       )),
-                column(width = 3,
-                       box(width = NULL, status = "warning",
-                           textInput("address", "My location:"),
-                           actionButton("go", "Go!"),
-                           p("Click the button to update the value displayed in the main panel.")),
-                        box(width = NULL, status = "warning",
-                            sliderInput("range", "Choose a range", 1, 100000, 5000),
-#                            selectInput("range","Choose a range",choices=c(
-#                                    "100 m" = 100,
-#                                    "200 m" = 200,
-#                                    "300 m" = 300,
-#                                    "400 m" = 400,
-#                                    "500 m" = 500,
-#                                    "1000 m" = 1000),
-#                                    selected = NULL ),
-                           actionButton("refresh", "Refresh!"))
-                       
-                       
-                      )
-                 )
-               ),
+      
+          tabItems(
+                     # First tab content
+                   tabItem(tabName = "map",
+                            fluidRow(
+                                     column(width = 9,
+                                            box(width = NULL, solidHeader = TRUE,leafletOutput("map_output", height = 500)
+                                                )
+                                            
+                                            ),
+                                     column(width = 3,
+                                           box(width = NULL, status = "warning",
+                                                textInput("address", "My location:"),
+                                                actionButton("go", "Go!"),
+                                                 p("Click the button to update the value displayed in the main panel.") 
+                                            ),
+                                            box(width = NULL, status = "warning",
+                                                 sliderInput("range", "Choose a range", 1, 2000,1000),
+                                                p("Distance in meter")
+                        
+                                             )
+                                     )
+                            ),
+                          fluidRow(box(title = "table",width=800,DT::dataTableOutput("table")) )           
+                         ),
         #Second tab Item
-        tabItem(tabName = "chart",
-        # Boxes need to be put in a row (or column)
-        fluidRow(
-                box(title="Histgram", status = "primary",solidHeader = TRUE, 
-                    background="yellow", plotOutput("plot1", height = 250)),
-                
-                box(title = "Controls", status = "warning", solidHeader = TRUE,
-                    #inputId="slider"
-                    sliderInput("slider", "Number of observations:", 1, 100, 50),
-                    textInput("text", "Text input:"))
-                )
-                )
+              tabItem(tabName = "chart1",
+                      fluidRow(
+                              tabBox(
+                                      title = "",
+                                      # The id lets us use input$tabset1 on the server to find the current tab
+                                      id = "tabset1", 
+                                      tabPanel("Tab1", "First tab content"),
+                                      tabPanel("Tab2", "Tab content 2"),
+                                      tabPanel("Tab3", "Tab content 3")
+                              )
+                            
+                      )
+        )
 )
 )
 

@@ -3,8 +3,8 @@ library(data.table)
 library(leaflet)
 library(htmltools)
 
-tdata<-read.csv("NYCT.csv")
-wifidata<-fread("nycwifi.csv")
+tdata<-read.csv("NYCT_NEW.csv")
+wifidata<-read.csv("nycwifi.csv")
 
 
 
