@@ -8,14 +8,16 @@ library(rgdal)
 library(ggmap)
 library(geosphere)
 library(DT)
-
+# source("../output/leaflet.R")
+# source("../lib/DensityMapbyZipCode.R")
+# source("../lib/NewMap.R")
 header <- dashboardHeader(title = "Search for Restroom!")
 siderbar<-dashboardSidebar(
         sidebarMenu(
                 menuItem("Map", tabName = "map", icon = icon("fa fa-map"),badgeLabel = "TryMe!", badgeColor = "green"),
                 menuItem("Statistic Analysis",tabName = "stats", icon = icon("fa fa-bar-chart"), 
                          
-                         menuSubItem("Chart1",tabName = "chart1"),
+                         menuSubItem("Density Map",tabName = "chart1"),
                          menuSubItem("Income map",tabName = "chart2"))
                    )
                           )
@@ -52,7 +54,7 @@ body <- dashboardBody(
                                       title = "",
                                       # The id lets us use input$tabset1 on the server to find the current tab
                                       id = "tabset1", 
-                                      tabPanel("Tab1", "First tab content"),
+                                      tabPanel("Tab1", leafletOutput("plot1")),
                                       tabPanel("Tab2", "Tab content 2"),
                                       tabPanel("Tab3", "Tab content 3")
                               )
