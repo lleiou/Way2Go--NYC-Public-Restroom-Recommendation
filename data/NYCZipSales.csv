@@ -23,29 +23,29 @@ Bronx,Edenwald,369100,10469
 Bronx,Olinville,404500,10469
 Bronx,Belmont,320333,10467
 Bronx,Castle Hill,378000,10473
-Bronx,Eastchester,352500,10467
-Bronx,Woodlawn Heights,322333,10709
+Bronx,Eastchester,352500,10709
+Bronx,Woodlawn Heights,322333,10470
 Bronx,Bronxwood,263250,10469
 Bronx,Jeromes Park,379071,10463
 Bronx,Woodstock,277333,10470
-Bronx,Baychester,345333,10463
-Bronx,University Heights,355000,10475
-Bronx,Middletown - Pelham Bay,453830,10475
-Bronx,Bronxdale,430000,10472
+Bronx,Baychester,345333,10469
+Bronx,University Heights,355000,10453
+Bronx,Middletown - Pelham Bay,453830,10461
+Bronx,Bronxdale,430000,10467
 Bronx,Soundview,274875,10462
 Bronx,Parkchester,121775,10462
-Queens,Flushing Meadows Corona Park,289000,10462
-Queens,Lindenwood,292625,10472
-Queens,Broad Channel,319200,10462
-Queens,Briarwood,483487,11693
-Queens,Far Rockaway,497562,11693
+Queens,Flushing Meadows Corona Park,289000,11354
+Queens,Lindenwood,292625,11414
+Queens,Broad Channel,319200,11693
+Queens,Briarwood,483487,11453
+Queens,Far Rockaway,497562,11691
 Queens,Bayswater,406312,11691
-Queens,Arverne,367000,11693
-Queens,Rockaway Park Seaside,390000,11692
+Queens,Arverne,367000,11692
+Queens,Rockaway Park Seaside,390000,11694
 Queens,Forest Park,616000,11692
-Queens,South Jamaica,358872,11692
-Queens,Saint Albans,403524,11436
-Queens,Cambria Heights,423140,11692
+Queens,South Jamaica,358872,11435
+Queens,Saint Albans,403524,11412
+Queens,Cambria Heights,423140,11411
 Queens,Hollis,445111,11423
 Queens,Springfield Gardens,364996,11413
 Queens,Fresh Meadows,770522,11366
@@ -53,8 +53,8 @@ Queens,Old Howard Beach,372122,11414
 Queens,South Ozone Park,443675,11420
 Queens,Rochdale,401177,11434
 Queens,Ozone Park,438538,11417
-Queens,Laurelton,397761,11417
-Queens,Rosedale,408997,11417
+Queens,Laurelton,397761,11413
+Queens,Rosedale,408997,11422
 Queens,Richmond Hill,428999,11418
 Queens,Bellerose Floral Park,535031,11001
 Queens,Jamaica Hills,607333,11432
@@ -75,7 +75,7 @@ Queens,Neponsit Belle Harbor,660818,11367
 Queens,Forest Hills,954766,11375
 Queens,Maspeth,594357,11378
 Queens,Flushing,587604,11354
-Queens,Corona,399250,113454
+Queens,Corona,399250,11368
 Queens,Queens Village,424115,11429
 Queens,Auburndale,692186,11429
 Queens,Hillcrest,792800,11366
