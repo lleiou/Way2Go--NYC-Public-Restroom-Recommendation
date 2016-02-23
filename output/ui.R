@@ -16,7 +16,7 @@ siderbar<-dashboardSidebar(
                 menuItem("Statistic Analysis",tabName = "stats", icon = icon("fa fa-bar-chart"), 
                          
                          menuSubItem("Chart1",tabName = "chart1"),
-                         menuSubItem("CHart2",tabName = "chart2"))
+                         menuSubItem("Income map",tabName = "chart2"))
                    )
                           )
 body <- dashboardBody(
@@ -57,9 +57,13 @@ body <- dashboardBody(
                                       tabPanel("Tab3", "Tab content 3")
                               )
                             
-                      )
+                      )),
+                      tabItem(tabName="chart2",
+                      fluidRow(
+                              leafletOutput("plot2",width=720, height=600)
+                              ))  
         )
 )
-)
+
 
 ui<-dashboardPage(header,siderbar,body, title = "Simple Shiny",skin="purple")
