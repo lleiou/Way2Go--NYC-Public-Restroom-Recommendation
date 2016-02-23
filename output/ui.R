@@ -14,11 +14,11 @@ library(DT)
 header <- dashboardHeader(title = "Search for Restroom!")
 siderbar<-dashboardSidebar(
         sidebarMenu(
-                menuItem("Map", tabName = "map", icon = icon("fa fa-map"),badgeLabel = "TryMe!", badgeColor = "green"),
+                menuItem("Locate", tabName = "map", icon = icon("fa fa-map-marker"),badgeLabel = "TryMe!", badgeColor = "green"),
                 menuItem("Statistic Analysis",tabName = "stats", icon = icon("fa fa-bar-chart"), 
                          
-                         menuSubItem("Density Map",tabName = "chart1"),
-                         menuSubItem("Income map",tabName = "chart2"))
+                         menuSubItem("Density Map",tabName = "chart1",icon = icon("fa fa-map")),
+                         menuSubItem("Income map",tabName = "chart2",icon = icon("fa fa-usd")))
                    )
                           )
 body <- dashboardBody(
@@ -32,21 +32,22 @@ body <- dashboardBody(
                                                 )
                                             
                                             ),
-                                     column(width = 3,
+                                     column(width = 3,height= 5,
                                            box(width = NULL, status = "warning",
                                                 textInput("address", "My location:"),
                                                 actionButton("go", "Go!"),
-                                                 p("Click the button to update the value displayed in the main panel.") 
-                                            ),
-                                            box(width = NULL, status = "warning",
+                                                 p("Click the button to update the value displayed in the main panel.") ),
+                                            box(
+                                        width = NULL, status = "warning",
                                                  sliderInput("range", "Choose a range", 1, 2000,1000),
                                                 p("Distance in meter")
                         
-                                             )
-                                     )
-                            ),
+                                             ))
+                                     ),
+                            
                           fluidRow(box(title = "table",width=800,DT::dataTableOutput("table")) )           
-                         ),
+                         
+                          ),
         #Second tab Item
               tabItem(tabName = "chart1",
                       fluidRow(
@@ -54,7 +55,7 @@ body <- dashboardBody(
                                       title = "",
                                       # The id lets us use input$tabset1 on the server to find the current tab
                                       id = "tabset1", 
-                                      tabPanel("Density map of Restrooms", plotOutput("plot1"),status="warning"),
+                                      tabPanel("Density map of Restrooms", plotOutput("plot1")),
                                       tabPanel("Tab2", "Tab content 2"),
                                       tabPanel("Tab3", "Tab content 3"),
                               width = 720,height=600)
@@ -66,6 +67,7 @@ body <- dashboardBody(
                               ))  
         )
 )
+
 
 
 ui<-dashboardPage(header,siderbar,body, title = "Simple Shiny",skin="purple")
