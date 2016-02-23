@@ -1,0 +1,211 @@
+borough,neighbourhood,sales,zipcode
+Bronx,Fieldston,350000,10471
+Bronx,Riverdale,836241,10471
+Bronx,Fairmont - Claremont Village,350000,10471
+Bronx,Van Nest,325000,10462
+Bronx,North Riverdale,957800,10471
+Bronx,Kingsbridge,570833,10463
+Bronx,City Island,360931,10464
+Bronx,Morris Park,486000,10461
+Bronx,Unionport,354600,10469
+Bronx,Schuylerville,383985,10461
+Bronx,Clason Point,295833,10473
+Bronx,Williambridge,318875,10469
+Bronx,Throgs Neck - Edgewater Park,400459,10461
+Bronx,Pelham Gardens,404611,10469
+Bronx,Country Club,463320,10465
+Bronx,Spuyten Duyvil,936166,10469
+Bronx,Foxhurst,263000,10459
+Bronx,Laconia,302283,10459
+Bronx,Wakefield,353895,10466
+Bronx,Mount Hope,442400,10459
+Bronx,Edenwald,369100,10469
+Bronx,Olinville,404500,10469
+Bronx,Belmont,320333,10467
+Bronx,Castle Hill,378000,10473
+Bronx,Eastchester,352500,10709
+Bronx,Woodlawn Heights,322333,10470
+Bronx,Bronxwood,263250,10469
+Bronx,Jeromes Park,379071,10463
+Bronx,Woodstock,277333,10470
+Bronx,Baychester,345333,10469
+Bronx,University Heights,355000,10453
+Bronx,Middletown - Pelham Bay,453830,10461
+Bronx,Bronxdale,430000,10467
+Bronx,Soundview,274875,10462
+Bronx,Parkchester,121775,10462
+Queens,Flushing Meadows Corona Park,289000,11354
+Queens,Lindenwood,292625,11414
+Queens,Broad Channel,319200,11693
+Queens,Briarwood,483487,11453
+Queens,Far Rockaway,497562,11691
+Queens,Bayswater,406312,11691
+Queens,Arverne,367000,11692
+Queens,Rockaway Park Seaside,390000,11694
+Queens,Forest Park,616000,11692
+Queens,South Jamaica,358872,11435
+Queens,Saint Albans,403524,11412
+Queens,Cambria Heights,423140,11411
+Queens,Hollis,445111,11423
+Queens,Springfield Gardens,364996,11413
+Queens,Fresh Meadows,770522,11366
+Queens,Old Howard Beach,372122,11414
+Queens,South Ozone Park,443675,11420
+Queens,Rochdale,401177,11434
+Queens,Ozone Park,438538,11417
+Queens,Laurelton,397761,11413
+Queens,Rosedale,408997,11422
+Queens,Richmond Hill,428999,11418
+Queens,Bellerose Floral Park,535031,11001
+Queens,Jamaica Hills,607333,11432
+Queens,Oakland Gardens,981150,11364
+Queens,Jackson Heights,664763,11372
+Queens,Pomonok,476846,11367
+Queens,Woodhaven,455046,11367
+Queens,Kew Gardens,684857,11367
+Queens,Elmhurst,583777,11415
+Queens,Woodside,623851,11415
+Queens,Rego Park,534312,11367
+Queens,Sunnyside,740428,11374
+Queens,Middle Village,627696,11367
+Queens,Glendale,520000,11379
+Queens,East Corona,512843,11379
+Queens,Ditmars Steinway,516356,11367
+Queens,Neponsit Belle Harbor,660818,11367
+Queens,Forest Hills,954766,11375
+Queens,Maspeth,594357,11378
+Queens,Flushing,587604,11354
+Queens,Corona,399250,11368
+Queens,Queens Village,424115,11429
+Queens,Auburndale,692186,11429
+Queens,Hillcrest,792800,11366
+Queens,Howard Beach,622181,11414
+Queens,North Corona,387714,11414
+Queens,Queensboro,743545,11414
+Queens,East Flushing,789625,11414
+Queens,Utopia,827458,11355
+Queens,College Point,740558,11414
+Queens,Douglaston Little Neck,780380,11414
+Queens,Murray Hill,776104,11414
+Queens,Browne Park,718642,11354
+Queens,Alley Park,950000,11362
+Queens,Bayside,833631,11361
+Queens,Ridgewood,495490,11361
+Queens,Whitestone,795799,11357
+Queens,Hunters Point,1119753,11357
+Queens,Jamaica Estates,686765,11361
+Queens,Astoria,648733,11103
+Staten Island,Todt Hill,1113333,10304
+Staten Island,Lighthouse Hill,795000,10306
+Staten Island,Prince's Bay,543745,10309
+Staten Island,Park Hill,268975,10309
+Staten Island,Annadale,540600,10309
+Staten Island,Tottenville,497625,10307
+Staten Island,Travis - Chelsea,315720,10314
+Staten Island,Grymes Hill,409750,10301
+Staten Island,New Dorp,479211,10306
+Staten Island,Concord,554333,10301
+Staten Island,Charleston,398966,10301
+Staten Island,New Brighton,505000,10301
+Staten Island,Richmond Town,519928,10306
+Staten Island,Eltingville,385425,10304
+Staten Island,Sunnyside,416577,10312
+Staten Island,Emerson Hill,451754,10312
+Staten Island,Great Kills,433237,10304
+Staten Island,Bay Terrace,406650,10308
+Staten Island,Arden Heights,428488,10312
+Staten Island,Rossville,349192,10308
+Staten Island,Bulls Head,433912,10308
+Staten Island,Castleton Corners,441000,10314
+Staten Island,Oakwood,419166,10314
+Staten Island,West Brighton,479000,10314
+Staten Island,Arrochar,362179,10305
+Staten Island,Rosebank,380000,10305
+Staten Island,New Springville,280611,10314
+Staten Island,Midland Beach,400000,10306
+Staten Island,Shore Acres,287500,10305
+Staten Island,Dongan Hills,397000,10305
+Staten Island,New Dorp Beach,372445,10306
+Staten Island,Randall Manor,535000,10301
+Staten Island,Heartland Village,260000,10314
+Staten Island,Mariners Park,229875,10314
+Staten Island,Clifton,289750,10314
+Staten Island,Port Richmond,332000,10310
+Brooklyn,Prospect Park South,2722500,11226
+Brooklyn,Cobble Hill,2273630,11201
+Brooklyn,Brooklyn Heights,1995666,11201
+Brooklyn,Park Slope,1640537,11215
+Brooklyn,Carroll Gardens,1523437,11231
+Brooklyn,Vinegar Hill,1336214,11201
+Brooklyn,Prospect Lefferts Gardens,1324500,11225
+Brooklyn,Manhattan Beach,1235032,11225
+Brooklyn,Fort Greene,1192666,11201
+Brooklyn,Flatbush - Ditmas Park,1144465,11226
+Brooklyn,Crown Heights,1107867,11226
+Brooklyn,Boerum Hill,1106666,11226
+Brooklyn,Greenpoint,1052679,11226
+Brooklyn,Prospect Heights,1039699,11226
+Brooklyn,Midwood,1019219,11226
+Brooklyn,Windsor Terrace,1004714,11226
+Brooklyn,Bay Ridge & Fort Hamilton,988603,11226
+Brooklyn,Downtown Brooklyn,983052,11201
+Brooklyn,Gowanus,937250,11215
+Brooklyn,Mill Basin,862003,11234
+Brooklyn,Clinton Hill,845434,11215
+Brooklyn,Columbia Street Waterfront District,817166,11231
+Brooklyn,Kensington & Parkville,799375,11231
+Brooklyn,Williamsburg,746075,11231
+Brooklyn,Dyker Heights,736916,11228
+Brooklyn,Mapleton,721250,11204
+Brooklyn,Bensonhurst,663458,11214
+Brooklyn,Gravesend,660178,11223
+Brooklyn,Greenwood,659714,11232
+Brooklyn,Bedford - Stuyvesant,644829,11221
+Brooklyn,Bath Beach,638334,11214
+Brooklyn,Sheepshead Bay,632012,11235
+Brooklyn,Borough Park,630912,11219
+Brooklyn,Brighton Beach,620045,11235
+Brooklyn,Marine Park,572843,11234
+Brooklyn,Bergen Beach,572000,11234
+Brooklyn,Sunset Park,499358,11220
+Brooklyn,Bushwick,490666,11221
+Brooklyn,Flatlands,481653,11236
+Brooklyn,Coney Island,439000,11224
+Brooklyn,Sea Gate,435666,11224
+Brooklyn,East Flatbush,433102,11203
+Brooklyn,Gerritsen Beach,401888,11229
+Brooklyn,Canarsie,380812,11236
+Brooklyn,Cypress Hills,372814,11208
+Brooklyn,East New York,310300,11208
+Brooklyn,Brownsville,286000,11212
+Manhattan,Inwood,381666,10034
+Manhattan,Washington Heights,495000,10032
+Manhattan,Roosevelt Island,960000,10044
+Manhattan,Hamilton Heights,2100000,10031
+Manhattan,Morningside Heights,859083,10027
+Manhattan,Harlem,805602,10027
+Manhattan,East Harlem,787285,10029
+Manhattan,Tudor City,914166,10017
+Manhattan,Murray Hill,1141501,10017
+Manhattan,Financial District,1187766,10006
+Manhattan,Sutton Place,1336533,10022
+Manhattan,Gramercy Park,1854509,10003
+Manhattan,Fort George,689750,10040
+Manhattan,East Village,1000751,10009
+Manhattan,Kips Bay,1306666,10016
+Manhattan,Lower East Side,1250000,10002
+Manhattan,Battery Park City,1070619,10281
+Manhattan,Garment District,1620000,10018
+Manhattan,Little Italy,3202500,10013
+Manhattan,Chinatown,2045400,10013
+Manhattan,Greenwich Village,2732857,10014
+Manhattan,Upper West Side,1660517,10024
+Manhattan,Flatiron District,2017624,10010
+Manhattan,Upper East Side,1531363,10075
+Manhattan,SoHo,3416625,10012
+Manhattan,Tribeca,3439254,10013
+Manhattan,West Village,2563440,10003
+Manhattan,NoLita,5500000,10012
+Manhattan,Inwood,381666,10034
+Manhattan,Washington Heights,495000,10032
+Manhattan,Roosevelt Island,960000,10044

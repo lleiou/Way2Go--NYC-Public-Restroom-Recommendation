@@ -48,21 +48,21 @@ grouped_rm$region=as.character(grouped_rm$region)
 nyc_fips = c(36005, 36047, 36061, 36081, 36085)
 
 
-#this is the map fucntion 
-map=zip_choropleth(grouped_rm,
-               county_zoom=nyc_fips,
-               title="New York City Facilities with Restroom",
-               legend="Num of Facility",
-               num_colors=3,
-               reference_map=FALSE
-               )
-
+# #this is the map fucntion 
+# map1=zip_choropleth(grouped_rm,
+#                county_zoom=nyc_fips,
+#                title="New York City Facilities with Restroom",
+#                legend="Num of Facility",
+#                num_colors=3,
+#                reference_map=FALSE
+#                )
 #belowed is another method to map
-map1=ZipChoropleth$new(grouped_rm)
-map1$title="New York City Facilities with Restroom"
-map1$ggplot_scale = scale_fill_brewer(name="Num of facility", palette=8, drop=FALSE)
-map1$set_zoom_zip(state_zoom=NULL, county_zoom=nyc_fips, msa_zoom=NULL, zip_zoom=NULL)
-map1$render()
+map2=ZipChoropleth$new(grouped_rm)
+map2$title="New York City Facilities with Restroom"
+map2$ggplot_scale = scale_fill_brewer(name="Num of facility", palette=8, drop=FALSE)
+map2$set_zoom_zip(state_zoom=NULL, county_zoom=nyc_fips, msa_zoom=NULL, zip_zoom=NULL)
+map1<-map2$render()
+map1
 
 
 
