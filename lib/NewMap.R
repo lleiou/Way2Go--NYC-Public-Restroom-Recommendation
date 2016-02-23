@@ -7,11 +7,13 @@ library(acs)
 library(tigris)
 library(stringr)
 library(rjson)
+#library(data.table)
+
 #create a sp objective of NY....
 tracts=tracts(state="NY",county = c(5, 47, 61, 81, 85), cb=TRUE)
 
 #plot(tract1)
-api.key.install(key="8bd87e9d054de037fbf2a58c335393c3de1232a6")
+api.key.install(key="25bc689c95eb102e46a2a0cedbe4ab2450e033f5")
 
 geo<-geo.make(state=c("NY"),
               county=c(5, 47, 61, 81, 85), tract="*")
@@ -30,7 +32,7 @@ income_df1 <- data.frame(paste0(str_pad(income@geography$state, 2, "left", pad="
                         stringsAsFactors = FALSE)
 
 
-income_df1=cbind()
+income_df1=cbind(Census.Name=rownames(income_df1),income_df1)
 
 
 income_df1 <- select(income_df1, 1:4)
@@ -44,7 +46,7 @@ income_merged1 <- income_merged1[income_merged1$ALAND>0,]
 
 
 
-popup <- paste0("Census: ", income_merged1$Census.Name, "<br>", "Percent of Households above $200k: ", round(income_merged$percent,2))
+popup <- paste0("Census: ", income_merged1$Census.Name, "<br>", "Percent of Households above $200k: ", round(income_merged1$percent,2))
 pal <- colorNumeric(
   palette = "YlGnBu",
   domain = income_merged1$percent
