@@ -35,7 +35,7 @@ server <- function(input, output) {
                 
                 
         })
-        output$plot1<-renderLeaflet({map1})
+        output$plot1<-renderPlot({map2})
         output$plot2<-renderLeaflet({map3})
         
 }

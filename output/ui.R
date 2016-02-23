@@ -54,7 +54,7 @@ body <- dashboardBody(
                                       title = "",
                                       # The id lets us use input$tabset1 on the server to find the current tab
                                       id = "tabset1", 
-                                      tabPanel("Tab1", leafletOutput("plot1")),
+                                      tabPanel("Tab1", plotOutput("plot1")),
                                       tabPanel("Tab2", "Tab content 2"),
                                       tabPanel("Tab3", "Tab content 3")
                               )
