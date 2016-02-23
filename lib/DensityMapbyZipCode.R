@@ -61,7 +61,8 @@ map2=ZipChoropleth$new(grouped_rm)
 map2$title="New York City Facilities with Restroom"
 map2$ggplot_scale = scale_fill_brewer(name="Num of facility", palette=8, drop=FALSE)
 map2$set_zoom_zip(state_zoom=NULL, county_zoom=nyc_fips, msa_zoom=NULL, zip_zoom=NULL)
-map2$render()
+map1<-map2$render()
+map1
 
 
 
