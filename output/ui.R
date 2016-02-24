@@ -18,7 +18,8 @@ siderbar<-dashboardSidebar(
                 menuItem("Statistic Analysis",tabName = "stats", icon = icon("fa fa-bar-chart"), 
                          
                          menuSubItem("Density Map",icon = icon("fa fa-map"),tabName = "chart1"),
-                         menuSubItem("Income map",icon = icon("fa fa-usd"),tabName = "chart2"))
+                         menuSubItem("Income map",icon = icon("fa fa-usd"),tabName = "chart2"),
+                         menuSubItem("Bar Chart",icon = icon("fa fa-area-chart"),tabName = "chart3"))
                    )
                           )
 body <- dashboardBody(
@@ -45,7 +46,7 @@ body <- dashboardBody(
                                              ),
                                            fluidRow(width=150, height=80,
                                                actionButton("mylocation", "My Location"),
-                                               actionButton("switch1","Switch1"),
+                                               actionButton("switch1","Switch"),
                                                p("Click the button to update the value displayed in the main panel."),
                                                img(src = "images.png",width=80, height=80))
                                         )
@@ -68,7 +69,10 @@ body <- dashboardBody(
                       tabItem(tabName="chart2",
                       fluidRow(
                               leafletOutput("plot2",width=720, height=600)
-                              ))  
+                              )),
+                tabItem(tabName ="chart3" ,
+                        fluidRow(plotOutput("plot4")
+                        ))
         )
 )
 
