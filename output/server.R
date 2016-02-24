@@ -1,6 +1,7 @@
 server <- function(input, output) {
         set.seed(122)
         d_test<-geocode("3260 Henry Hudson Parkway,Bronx")
+        newdata<-tdata
         name1 <-newdata$Name
         location1 <- newdata$Location
         handicap1<-newdata$Handicap
