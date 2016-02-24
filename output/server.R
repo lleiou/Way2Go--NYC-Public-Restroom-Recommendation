@@ -12,6 +12,7 @@ server <- function(input, output) {
         my_address<-eventReactive(input$go,{input$address})
         GPS<-eventReactive(input$mylocation,{getCurrentPosition()})
         
+        
         output$map_output <- renderLeaflet({map})
         observe({
                 code<-geocode(my_address())
@@ -56,6 +57,8 @@ server <- function(input, output) {
           
           
         })
+        
+        observeEvent(input$switch1,output$map_output<-renderLeaflet({map3}))
         output$plot1<-renderPlot({map1})
         output$plot2<-renderLeaflet({map3})
         

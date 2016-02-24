@@ -45,7 +45,8 @@ body <- dashboardBody(
                                              ),
                                            fluidRow(width=150, height=80,
                                                actionButton("mylocation", "My Location"),
-                                               p("Click the button to update the value displayed in the main panel."), 
+                                               actionButton("switch1","Switch1"),
+                                               p("Click the button to update the value displayed in the main panel."),
                                                img(src = "images.png",width=80, height=80))
                                         )
                             ),
