@@ -1,6 +1,7 @@
 server <- function(input, output) {
         set.seed(122)
         d_test<-geocode("3260 Henry Hudson Parkway,Bronx")
+        newdata<-tdata
         name1 <-newdata$Name
         location1 <- newdata$Location
         handicap1<-newdata$Handicap
@@ -24,7 +25,7 @@ server <- function(input, output) {
                         clearPopups()%>%
                         clearGroup("newdata")%>%
                         #run if we get address put in else show my address 
-                        setView(code$lon, code$lat,zoom=11)%>%
+                        setView(code$lon, code$lat,zoom=13)%>%
                         addPopups(code$lon, code$lat,"I'm Here", 
                                   options = popupOptions(closeButton = TRUE))%>%
                         hideGroup("Restrooms")%>%
@@ -62,7 +63,7 @@ server <- function(input, output) {
         output$plot1<-renderPlot({map1})
         output$plot2<-renderLeaflet({map3})
         output$plot3<-renderPlot({map_pop})
-        output$plot4<-renderPlot({bubble})
+        output$plot4<-renderPlotly({bubble})
 }
              
 

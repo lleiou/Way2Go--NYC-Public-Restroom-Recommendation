@@ -4,7 +4,7 @@ library(dplyr)
 library(leaflet)
 library(htmltools)
 
-tdata<-read.csv("NYCT_NEW_ZIP.csv")
+tdata<-read.csv("NYCT_NEW.csv")
 wifidata<-read.csv("nycwifi.csv")
 #fdata<-read.csv("NYC_fac.csv")
 
@@ -45,7 +45,7 @@ ToiletIcon <- makeIcon(
 )
 
 map<-leaflet()%>%
-  setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=15) %>% 
+  setView(lng=-73.96884112664793,lat =40.78983730268673, zoom=13) %>% 
   addTiles() %>% 
   addMarkers(data =tdata, group = "Restrooms",popup = content, icon=ToiletIcon) %>%
   addMarkers(data = wifidata, group = "Wi-Fi",lng = ~ Long_, lat = ~ Lat,
@@ -53,7 +53,7 @@ map<-leaflet()%>%
   #addMarkers(data =data, group = "Facilities",popup = fcontent) %>%
   # Layers control
     addLayersControl(
-    overlayGroups = c("Restrooms", "Wi-Fi","Facilities"),
+    overlayGroups = c("Restrooms", "Wi-Fi"),
   
     options = layersControlOptions(collapsed = FALSE)
     )
