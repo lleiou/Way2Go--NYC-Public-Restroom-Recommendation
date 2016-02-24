@@ -56,54 +56,53 @@ Queens,Ozone Park,438538,11417
 Queens,Laurelton,397761,11413
 Queens,Rosedale,408997,11422
 Queens,Richmond Hill,428999,11418
-Queens,Bellerose Floral Park,535031,11001
+Queens,Bellerose Floral Park,535031,11426
 Queens,Jamaica Hills,607333,11432
 Queens,Oakland Gardens,981150,11364
 Queens,Jackson Heights,664763,11372
 Queens,Pomonok,476846,11367
-Queens,Woodhaven,455046,11367
-Queens,Kew Gardens,684857,11367
-Queens,Elmhurst,583777,11415
-Queens,Woodside,623851,11415
-Queens,Rego Park,534312,11367
-Queens,Sunnyside,740428,11374
-Queens,Middle Village,627696,11367
-Queens,Glendale,520000,11379
-Queens,East Corona,512843,11379
-Queens,Ditmars Steinway,516356,11367
-Queens,Neponsit Belle Harbor,660818,11367
+Queens,Woodhaven,455046,11421
+Queens,Kew Gardens,684857,11415
+Queens,Elmhurst,583777,11373
+Queens,Woodside,623851,11377
+Queens,Rego Park,534312,11374
+Queens,Sunnyside,740428,11104
+Queens,Middle Village,627696,11379
+Queens,Glendale,520000,11385
+Queens,East Corona,512843,11368
+Queens,Ditmars Steinway,516356,11370
+Queens,Neponsit Belle Harbor,660818,11694
 Queens,Forest Hills,954766,11375
 Queens,Maspeth,594357,11378
 Queens,Flushing,587604,11354
-Queens,Corona,399250,11368
+Queens,Coron,399250,11368
 Queens,Queens Village,424115,11429
-Queens,Auburndale,692186,11429
+Queens,Auburndale,692186,11358
 Queens,Hillcrest,792800,11366
 Queens,Howard Beach,622181,11414
-Queens,North Corona,387714,11414
+Queens,North Corona,387714,11368
 Queens,Queensboro,743545,11414
-Queens,East Flushing,789625,11414
-Queens,Utopia,827458,11355
-Queens,College Point,740558,11414
-Queens,Douglaston Little Neck,780380,11414
-Queens,Murray Hill,776104,11414
+Queens,East Flushing,789625,11351
+Queens,Utopia,827458,11366
+Queens,College Point,740558,11356
+Queens,Douglaston Little Neck,780380,11362
 Queens,Browne Park,718642,11354
 Queens,Alley Park,950000,11362
-Queens,Bayside,833631,11361
-Queens,Ridgewood,495490,11361
+Queens,Bayside,833631,11359
+Queens,Ridgewood,495490,11385
 Queens,Whitestone,795799,11357
-Queens,Hunters Point,1119753,11357
-Queens,Jamaica Estates,686765,11361
+Queens,Hunters Point,1119753,11101
+Queens,Jamaica Estates,686765,11432
 Queens,Astoria,648733,11103
 Staten Island,Todt Hill,1113333,10304
 Staten Island,Lighthouse Hill,795000,10306
 Staten Island,Prince's Bay,543745,10309
-Staten Island,Park Hill,268975,10309
-Staten Island,Annadale,540600,10309
-Staten Island,Tottenville,497625,10307
+Staten Island,Park Hill,268975,10304
+Staten Island,Annadale,540600,10312
+Staten Island,Tottenville,497625,10302
 Staten Island,Travis - Chelsea,315720,10314
-Staten Island,Grymes Hill,409750,10301
-Staten Island,New Dorp,479211,10306
+Staten Island,Grymes Hill,409750,10304
+Staten Island,New Dorp,479211,10302
 Staten Island,Concord,554333,10301
 Staten Island,Charleston,398966,10301
 Staten Island,New Brighton,505000,10301
@@ -128,7 +127,7 @@ Staten Island,Dongan Hills,397000,10305
 Staten Island,New Dorp Beach,372445,10306
 Staten Island,Randall Manor,535000,10301
 Staten Island,Heartland Village,260000,10314
-Staten Island,Mariners Park,229875,10314
+Staten Island,Mariners Park,229875,10303
 Staten Island,Clifton,289750,10314
 Staten Island,Port Richmond,332000,10310
 Brooklyn,Prospect Park South,2722500,11226
