@@ -19,7 +19,8 @@ siderbar<-dashboardSidebar(
                          
                          menuSubItem("Density Map",icon = icon("fa fa-map"),tabName = "chart1"),
                          menuSubItem("Income map",icon = icon("fa fa-usd"),tabName = "chart2"),
-                         menuSubItem("Bar Chart",icon = icon("fa fa-area-chart"),tabName = "chart3"))
+                         menuSubItem("Bar Chart",icon = icon("fa fa-area-chart"),tabName = "chart3")),
+                menuItem("About Us", tabName = "About", icon = icon("fa fa-user"))
                    )
                           )
 body <- dashboardBody(
@@ -72,7 +73,12 @@ body <- dashboardBody(
                               )),
                 tabItem(tabName ="chart3" ,
                         fluidRow(plotlyOutput("plot4")
-                        ))
+                        )),
+        
+        
+        tabItem(tabName = "About",box(title="About Us",width = 400,height = 500,p("Click the button to update the value displayed in the main panel.")))
+        
+        
         )
 )
 
