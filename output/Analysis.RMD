@@ -72,7 +72,11 @@ Due to the lack of data, we cannot really know what the average income level of 
 ```{r}
 library(plotly)
 # note how size is automatically scaled and added as hover text]
+<<<<<<< HEAD
 plot_5 <- plot_ly(x = SalesPop$sales , y = SalesPop$population,  plot_bgcolor="blue", size =SalesPop$NumberofRestrooms/SalesPop$population  , color=SalesPop$borough, mode = "markers")
+=======
+plot5 <- plot_ly(x = SalesPop$sales , y = SalesPop$population,  plot_bgcolor="blue", size =SalesPop$NumberofRestrooms, color=SalesPop$borough, mode = "markers")
+>>>>>>> origin/master
 ```
 
 
