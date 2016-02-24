@@ -8,10 +8,10 @@
 library(rjson)
   url="http://freegeoip.net/json/"
   
-  getCurrentPoistion=function(){
+  getCurrentPosition=function(){
   address <- fromJSON(file=url, method='C')
   #address
   return(address)
 
 }
-position<- as.data.frame(getCurrentPoistion())
+position<- as.data.frame(getCurrentPosition())
