@@ -15,8 +15,12 @@ library(dplyr)
 library(ggplot2)
 
 #the input data frame must only have two columns:region(zip code) and value
-nyc_fc=data.frame(fread("..//data//fac_num1.csv"))
+nyc_fc=data.frame(fread("fac_num1.csv"))
+nyc_pop=data.frame(fread("NYC_pop.csv"))
 
+nyc_pop=nyc_pop[2:3]
+colnames(nyc_pop)=c("region","value")
+nyc_pop$region=as.character(nyc_pop$region)
 
 #every region must only appear once
 grouped=nyc_fc %>%
@@ -56,7 +60,7 @@ nyc_fips = c(36005, 36047, 36061, 36081, 36085)
 #                num_colors=3,
 #                reference_map=FALSE
 #                )
-#belowed is another method to map
+#belowed is another method to mapp
 map2=ZipChoropleth$new(grouped_rm)
 map2$title="New York City Facilities with Restroom"
 map2$ggplot_scale = scale_fill_brewer(name="Num of facility", palette=8, drop=FALSE)
@@ -64,5 +68,10 @@ map2$set_zoom_zip(state_zoom=NULL, county_zoom=nyc_fips, msa_zoom=NULL, zip_zoom
 map1<-map2$render()
 map1
 
+map_pop=ZipChoropleth$new(nyc_pop)
+map_pop$title="New York Population"
+map_pop$ggplot_scale = scale_fill_brewer(name="population", palette=8, drop=FALSE)
+map_pop$set_zoom_zip(state_zoom=NULL, county_zoom=nyc_fips, msa_zoom=NULL, zip_zoom=NULL)
 
-
+map_pop=map_pop$render()
+map_pop

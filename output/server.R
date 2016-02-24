@@ -10,7 +10,7 @@ server <- function(input, output) {
         handicap1 <- paste("<i>","handicap:",handicap1,"</i>")
         content1 <- paste(sep =  "<br/>",name1,location1,handicap1 )
         my_address<-eventReactive(input$go,{input$address})
-        
+        GPS<-eventReactive(input$mylocation,{getCurrentPosition()})
         
         output$map_output <- renderLeaflet({map})
         observe({
@@ -34,6 +34,27 @@ server <- function(input, output) {
                         addCircles(code$lon, code$lat,radius = input$range,color="red",group = "newdata")
                 
                 
+        })
+        observe({
+          t<-GPS()
+          code<-cbind(t$longitude,t$latitude) 
+          tdata_sub<-tdata[,7:8] 
+          tdata_sub1<-tdata_sub[,c(2,1)]
+          newdata<-subset(tdata,distHaversine(code,tdata_sub1) <= input$range)
+          output$table <- DT::renderDataTable(DT::datatable(data <-newdata))
+          leafletProxy("map_output") %>%
+            clearPopups()%>%
+            clearGroup("newdata")%>%
+            #run if we get address put in else show my address 
+            setView(code[1], code[2],zoom=13)%>%
+            addPopups(code[1], code[2],"I'm Here", 
+                      options = popupOptions(closeButton = TRUE))%>%
+            hideGroup("Restrooms")%>%
+            
+            addMarkers(data =newdata,icon=ToiletIcon,group = "newdata",popup=content1)%>%
+            addCircles(code[1], code[2],radius = input$range,color="red",group = "newdata")
+          
+          
         })
         output$plot1<-renderPlot({map1})
         output$plot2<-renderLeaflet({map3})
