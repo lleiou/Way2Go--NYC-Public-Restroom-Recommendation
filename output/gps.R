@@ -14,3 +14,4 @@ library(rjson)
   return(address)
 
 }
+position<- as.data.frame(getCurrentPoistion())
