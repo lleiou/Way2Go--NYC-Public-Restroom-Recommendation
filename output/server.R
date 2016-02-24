@@ -25,7 +25,7 @@ server <- function(input, output) {
                         clearPopups()%>%
                         clearGroup("newdata")%>%
                         #run if we get address put in else show my address 
-                        setView(code$lon, code$lat,zoom=11)%>%
+                        setView(code$lon, code$lat,zoom=13)%>%
                         addPopups(code$lon, code$lat,"I'm Here", 
                                   options = popupOptions(closeButton = TRUE))%>%
                         hideGroup("Restrooms")%>%
