@@ -17,6 +17,8 @@ library(ggplot2)
 #the input data frame must only have two columns:region(zip code) and value
 nyc_fc=data.frame(fread("fac_num1.csv"))
 nyc_pop=data.frame(fread("NYC_pop.csv"))
+nyc_hos=data.frame(fread("house.csv"))
+
 
 nyc_pop=nyc_pop[2:3]
 colnames(nyc_pop)=c("region","value")
@@ -27,6 +29,17 @@ grouped=nyc_fc %>%
   group_by(region) %>%
   summarise(value=sum(value))
 data.frame(grouped)
+
+head(nyc_hos)
+nyc_hos=nyc_hos[4:5]
+colnames(nyc_hos)=c("region","value")
+nyc_hos$region=as.character(nyc_hos$region)
+
+grouped1=nyc_hos %>%
+  group_by(region) %>%
+  summarise(value=mean(value))
+data.frame(grouped1)
+
 
 #grouped_rm<-grouped[!(grouped$region==10129|grouped$region==10281|grouped$region==10430|grouped$region==11249|grouped$region==11352
 #                      |grouped$region==11695
@@ -41,6 +54,14 @@ grouped_rm=subset(grouped,region!=10129
                   &region!=11352
                   &region!=11695
                   &region!=13564)
+
+group1_rm=subset(grouped1,region!=10129
+                 &region!=10281
+                 &region!=10430
+                 &region!=11249
+                 &region!=11352
+                 &region!=11695
+                 &region!=13564)
 
 #data.frame(grouped_rm)
 #toString(grouped_rm$region)
@@ -75,3 +96,10 @@ map_pop$set_zoom_zip(state_zoom=NULL, county_zoom=nyc_fips, msa_zoom=NULL, zip_z
 
 map_pop=map_pop$render()
 map_pop
+
+map_hos=ZipChoropleth$new(group1_rm)
+map_hos$title="Manhattan House Price"
+map_hos$ggplot_scale = scale_fill_brewer(name="house price", palette=8, drop=FALSE)
+map_hos$set_zoom_zip(state_zoom=NULL, county_zoom=nyc_fips, msa_zoom=NULL, zip_zoom=NULL)
+
+map_hos=map_hos$render()
