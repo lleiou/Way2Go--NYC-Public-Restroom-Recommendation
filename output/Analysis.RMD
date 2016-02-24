@@ -6,7 +6,7 @@ output: html_document
 ---
 
 ###What we want to do
-1.Compare the restroom density and the number of restroom evry person have in terms of borough, population, even the community district(depends on whether we can get the zip code of every cd)
+1.Compare the restroom density and the number of restrooms every person have in terms of borough, population, even the community district(depends on whether we can get the zip code of every cd)
 2.figure out the correlation between public restroom and some other public factors
 3.suggestion on building some more restrooms in certain area based on our own knowledge
 
@@ -19,7 +19,7 @@ Firstly let's have a look at the number of toilets  under zip code.
 ```{r}
 SalesPop <- read.csv("SalesPop.csv")
 library(plotly)
-plot1 <- plot_ly(x = as.character(SalesPop$zipcode), y=SalesPop$NumberofRestrooms, type = "bar", color = SalesPop$borough)
+plot_1 <- plot_ly(x = as.character(SalesPop$zipcode), y=SalesPop$NumberofRestrooms, type = "bar", color = SalesPop$borough)
 
 ```
 
@@ -30,7 +30,7 @@ Firstly, let's look at the average number of toilets in every borough.
 ```{r}
 SalesAve <- data.frame(borough=c("Manhattan","Bronx","Queens","Brooklyn","Staten Island"),mean=c(mean(subset(SalesPop,borough == "Manhattan")[,5]),mean(subset(SalesPop,borough == "Bronx")[,5]),mean(subset(SalesPop,borough == "Queens")[,5]), mean(subset(SalesPop,borough == "Brooklyn")[,5]),mean(subset(SalesPop,borough == "Staten Island")[,5])))
 
-plot2 <- plot_ly(x = SalesAve$borough, y=SalesAve$mean, type = "bar", color = SalesAve$borough)
+plot_2 <- plot_ly(x = SalesAve$borough, y=SalesAve$mean, type = "bar", color = SalesAve$borough)
 ```
 
 
@@ -38,7 +38,7 @@ Also, we now look at the average number of toilets under every zip code, but gro
 
 ```{r}
 
-plot3 <- plot_ly(x = subset(SalesPop,borough == "Manhattan")$zipcode, y=subset(SalesPop,borough == "Manhattan")$NumberofRestrooms, opacity = 0.6,mode = "markers",xlim=c(0,5)) %>%
+plot_3 <- plot_ly(x = subset(SalesPop,borough == "Manhattan")$zipcode, y=subset(SalesPop,borough == "Manhattan")$NumberofRestrooms, opacity = 0.6,mode = "markers",xlim=c(0,5)) %>%
   add_trace(x = subset(SalesPop,borough == "Bronx")[,2],y=subset(SalesPop,borough == "Bronx")[,5]) %>%
   add_trace(x = subset(SalesPop,borough == "Queens")[,2],y=subset(SalesPop,borough == "Queens")[,5]) %>%
   add_trace(x = subset(SalesPop,borough == "Brooklyn")[,2],y=subset(SalesPop,borough == "Brooklyn")[,5]) %>%
@@ -52,7 +52,7 @@ But this is just the total number of the toilets in different districts, which f
 Thus, we calculate the number of restrooms that everyperson under the same zipcode could own, and draw another distribution plot:
 
 ```{r}
-plot4 <- plot_ly(x = subset(SalesPop,borough == "Manhattan")[,2], y=subset(SalesPop,borough == "Manhattan")[,5]/subset(SalesPop,borough == "Manhattan")[,4], opacity = 0.6, mode = "markers",xlim=c(0,5)) %>%
+plot_4 <- plot_ly(x = subset(SalesPop,borough == "Manhattan")[,2], y=subset(SalesPop,borough == "Manhattan")[,5]/subset(SalesPop,borough == "Manhattan")[,4], opacity = 0.6, mode = "markers",xlim=c(0,5)) %>%
   add_trace(x = subset(SalesPop,borough == "Bronx")[,2],y=subset(SalesPop,borough == "Bronx")[,5]/subset(SalesPop,borough == "Bronx")[,4]) %>%
   add_trace(x = subset(SalesPop,borough == "Queens")[,2],y=subset(SalesPop,borough == "Queens")[,5]/subset(SalesPop,borough == "Queens")[,4]) %>%
   add_trace(x = subset(SalesPop,borough == "Brooklyn")[,2],y=subset(SalesPop,borough == "Brooklyn")[,5]/subset(SalesPop,borough == "Brooklyn")[,4]) %>%
@@ -72,7 +72,7 @@ Due to the lack of data, we cannot really know what the average income level of 
 ```{r}
 library(plotly)
 # note how size is automatically scaled and added as hover text]
-plot5 <- plot_ly(x = SalesPop$sales , y = SalesPop$population,  plot_bgcolor="blue", size =SalesPop$NumberofRestrooms/SalesPop$population  , color=SalesPop$borough, mode = "markers")
+plot_5 <- plot_ly(x = SalesPop$sales , y = SalesPop$population,  plot_bgcolor="blue", size =SalesPop$NumberofRestrooms/SalesPop$population  , color=SalesPop$borough, mode = "markers")
 ```
 
 
@@ -80,7 +80,7 @@ As we discussed before, it makes more sense to see the number of restrooms that 
 ```{r}
 library(plotly)
 # note how size is automatically scaled and added as hover text]
-plot6 <- plot_ly(x = SalesPop$sales , y = SalesPop$population,  plot_bgcolor="blue", size =SalesPop$NumberofRestrooms/SalesPop$population  , color=SalesPop$borough, mode = "markers")
+plot_6 <- plot_ly(x = SalesPop$sales , y = SalesPop$population,  plot_bgcolor="blue", size =SalesPop$NumberofRestrooms, color=SalesPop$borough, mode = "markers")
 
 ```
 

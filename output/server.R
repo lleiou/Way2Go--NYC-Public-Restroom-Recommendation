@@ -29,9 +29,6 @@ server <- function(input, output) {
                         addPopups(code$lon, code$lat,"I'm Here", 
                                   options = popupOptions(closeButton = TRUE))%>%
                         hideGroup("Restrooms")%>%
-                
-
-                        
                         addMarkers(data =newdata,icon=ToiletIcon,group = "newdata",popup=content1)%>%
                         addCircles(code$lon, code$lat,radius = input$range,color="red",group = "newdata")
                 
@@ -63,7 +60,14 @@ server <- function(input, output) {
         output$plot1<-renderPlot({map1})
         output$plot2<-renderLeaflet({map3})
         output$plot3<-renderPlot({map_pop})
-        output$plot4<-renderPlotly({bubble})
+        output$plot_1<-renderPlotly({plot_1})
+        output$plot_2<-renderPlotly({plot_2})
+        output$plot_3<-renderPlotly({plot_3})
+        output$plot_4<-renderPlotly({plot_4})
+        output$plot_5<-renderPlotly({plot_5})
+        output$plot_6<-renderPlotly({plot_6})
+        
+        
 }
              
 

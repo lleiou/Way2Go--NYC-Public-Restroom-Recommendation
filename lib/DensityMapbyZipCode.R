@@ -11,6 +11,7 @@
 library(choroplethr)
 library(choroplethrZip)
 library(data.table)
+library(devtools)
 library(dplyr)
 library(ggplot2)
 

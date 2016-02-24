@@ -12,7 +12,7 @@ library(shinyapps)
 # source("../output/leaflet.R")
 # source("../lib/DensityMapbyZipCode.R")
 # source("../lib/NewMap.R")
-header <- dashboardHeader(title = "WayToGo")
+header <- dashboardHeader(title = "Way2Go")
 siderbar<-dashboardSidebar(
         sidebarMenu(
                 menuItem("Locate", tabName = "map", icon = icon("fa fa-map-marker"),badgeLabel = "TryMe!", badgeColor = "green"),
@@ -64,7 +64,7 @@ body <- dashboardBody(
                                       id = "tabset1", 
                                       tabPanel("Restroom Density Map", plotOutput("plot1")),
                                       tabPanel("Population Density Map", plotOutput("plot3")),
-                                      tabPanel("Tab3", "Tab content 3")
+                                      tabPanel("Housing Price Density Map", "Tab content 3")
                               )
                             
                       )),
@@ -72,8 +72,19 @@ body <- dashboardBody(
                       fluidRow(
                               leafletOutput("plot2",width=720, height=600)
                               )),
-                tabItem(tabName ="chart3" ,
-                        fluidRow(plotlyOutput("plot4")
+                
+                      tabItem(tabName ="chart3" ,
+                        fluidRow(
+                                tabBox(width=12,height = 10,
+                                       # The id lets us use input$tabset1 on the server to find the current tab
+                                       id = "tabset2", 
+                                       tabPanel("Plot1", plotlyOutput("plot_1")),
+                                       tabPanel("Plot2", plotlyOutput("plot_2")),
+                                       tabPanel("Plot3", plotlyOutput("plot_3")),
+                                       tabPanel("Plot4", plotlyOutput("plot_4")),
+                                       tabPanel("Plot5", plotlyOutput("plot_5")),
+                                       tabPanel("Plot6", plotlyOutput("plot_6"))
+                                )
                         )),
         
         
