@@ -60,6 +60,7 @@ server <- function(input, output) {
         output$plot1<-renderPlot({map1})
         output$plot2<-renderLeaflet({map3})
         output$plot3<-renderPlot({map_pop})
+        output$plot4<-renderPlot({map_hos})
         output$plot_1<-renderPlotly({plot_1})
         output$plot_2<-renderPlotly({plot_2})
         output$plot_3<-renderPlotly({plot_3})
