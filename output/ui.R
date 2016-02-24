@@ -14,11 +14,11 @@ library(DT)
 header <- dashboardHeader(title = "Search for Restroom!")
 siderbar<-dashboardSidebar(
         sidebarMenu(
-                menuItem("Map", tabName = "map", icon = icon("fa fa-map"),badgeLabel = "TryMe!", badgeColor = "green"),
+                menuItem("Locate", tabName = "map", icon = icon("fa fa-map-marker"),badgeLabel = "TryMe!", badgeColor = "green"),
                 menuItem("Statistic Analysis",tabName = "stats", icon = icon("fa fa-bar-chart"), 
                          
-                         menuSubItem("Density Map",tabName = "chart1"),
-                         menuSubItem("Income map",tabName = "chart2"))
+                         menuSubItem("Density Map",icon = icon("fa fa-map"),tabName = "chart1"),
+                         menuSubItem("Income map",icon = icon("fa fa-usd"),tabName = "chart2"))
                    )
                           )
 body <- dashboardBody(
@@ -54,11 +54,11 @@ body <- dashboardBody(
         #Second tab Item
               tabItem(tabName = "chart1",
                       fluidRow(
-                              tabBox(
+                              tabBox(width=12,height = 10,
                                       title = "",
                                       # The id lets us use input$tabset1 on the server to find the current tab
                                       id = "tabset1", 
-                                      tabPanel("Tab1", plotOutput("plot1")),
+                                      tabPanel("Restroom Density Map", plotOutput("plot1")),
                                       tabPanel("Tab2", "Tab content 2"),
                                       tabPanel("Tab3", "Tab content 3")
                               )
