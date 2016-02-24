@@ -11,7 +11,7 @@ library(DT)
 # source("../output/leaflet.R")
 # source("../lib/DensityMapbyZipCode.R")
 # source("../lib/NewMap.R")
-header <- dashboardHeader(title = "Search for Restroom!")
+header <- dashboardHeader(title = "WayToGo")
 siderbar<-dashboardSidebar(
         sidebarMenu(
                 menuItem("Locate", tabName = "map", icon = icon("fa fa-map-marker"),badgeLabel = "TryMe!", badgeColor = "green"),
@@ -71,7 +71,7 @@ body <- dashboardBody(
                               leafletOutput("plot2",width=720, height=600)
                               )),
                 tabItem(tabName ="chart3" ,
-                        fluidRow(plotOutput("plot4")
+                        fluidRow(plotlyOutput("plot4")
                         ))
         )
 )
