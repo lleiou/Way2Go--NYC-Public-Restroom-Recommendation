@@ -61,7 +61,7 @@ server <- function(input, output) {
         observeEvent(input$switch1,output$map_output<-renderLeaflet({map3}))
         output$plot1<-renderPlot({map1})
         output$plot2<-renderLeaflet({map3})
-        
+        output$plot3<-renderPlot({map_pop})
 }
              
 

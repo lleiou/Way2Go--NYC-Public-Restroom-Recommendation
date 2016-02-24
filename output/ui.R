@@ -60,7 +60,7 @@ body <- dashboardBody(
                                       # The id lets us use input$tabset1 on the server to find the current tab
                                       id = "tabset1", 
                                       tabPanel("Restroom Density Map", plotOutput("plot1")),
-                                      tabPanel("Tab2", "Tab content 2"),
+                                      tabPanel("Population Density Map", plotOutput("plot3")),
                                       tabPanel("Tab3", "Tab content 3")
                               )
                             
