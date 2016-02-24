@@ -1,0 +1,105 @@
+---
+title: "Idea???s on the data analysis"
+author: "Ao Liu"
+date: "February 18, 2016"
+output: html_document
+---
+
+###What we want to do
+1.Compare the restroom density and the number of restroom evry person have in terms of borough, population, even the community district(depends on whether we can get the zip code of every cd)
+2.figure out the correlation between public restroom and some other public factors
+3.suggestion on building some more restrooms in certain area based on our own knowledge
+
+
+The main data we use comes form NYC Open Data,  we not only consider the restrooms in public parks, since the number of parks in the city is limited, so not everyone can find a park nearby, so we also take into account the public restrooms in other public facilities like public libraries, public hosoitals, fast food restaurants and so on. By adding more public facilities into the dataset, our investigation makes more sense and have a better realistic meaning.
+
+Firstly let's have a look at the number of toilets  under zip code.
+
+
+```{r}
+SalesPop <- read.csv("SalesPop.csv")
+library(plotly)
+plot1 <- plot_ly(x = as.character(SalesPop$zipcode), y=SalesPop$NumberofRestrooms, type = "bar", color = SalesPop$borough)
+
+```
+
+However, simply making this inference cannot satisfy our needs. The zip code is just a separation of the geographical areas, which contains less information about the region it represents, what's more, different areas have different situations, putting them together means ignoring their difference, which does no good to our investigation. It might help if we could look at the data by different groups, here in NYC, we consider to use the borough as the standard of separation.
+
+Firstly, let's look at the average number of toilets in every borough.
+
+```{r}
+SalesAve <- data.frame(borough=c("Manhattan","Bronx","Queens","Brooklyn","Staten Island"),mean=c(mean(subset(SalesPop,borough == "Manhattan")[,5]),mean(subset(SalesPop,borough == "Bronx")[,5]),mean(subset(SalesPop,borough == "Queens")[,5]), mean(subset(SalesPop,borough == "Brooklyn")[,5]),mean(subset(SalesPop,borough == "Staten Island")[,5])))
+
+plot2 <- plot_ly(x = SalesAve$borough, y=SalesAve$mean, type = "bar", color = SalesAve$borough)
+```
+
+
+Also, we now look at the average number of toilets under every zip code, but grouped by borough:
+
+```{r}
+
+plot3 <- plot_ly(x = subset(SalesPop,borough == "Manhattan")$zipcode, y=subset(SalesPop,borough == "Manhattan")$NumberofRestrooms, opacity = 0.6,mode = "markers",xlim=c(0,5)) %>%
+  add_trace(x = subset(SalesPop,borough == "Bronx")[,2],y=subset(SalesPop,borough == "Bronx")[,5]) %>%
+  add_trace(x = subset(SalesPop,borough == "Queens")[,2],y=subset(SalesPop,borough == "Queens")[,5]) %>%
+  add_trace(x = subset(SalesPop,borough == "Brooklyn")[,2],y=subset(SalesPop,borough == "Brooklyn")[,5]) %>%
+  add_trace(x = subset(SalesPop,borough == "Staten Island")[,2],y=subset(SalesPop,borough == "Staten Island")[,5]) %>%
+  layout(barmode="overlay")
+```
+
+
+But this is just the total number of the toilets in different districts, which fails to fonsider the population of each district. Here, to make the question simple, we make an assumption that given other factors the same, the huge the population, the more people need to use the public restroom. Thus, what really interest us is the ratio of number of toilet under a zipcode to the total population under the zipcode. The ratio not only tells the pressure of people's using public restrooms, but also becomes a proper indicator in our recommendation system.
+
+Thus, we calculate the number of restrooms that everyperson under the same zipcode could own, and draw another distribution plot:
+
+```{r}
+plot4 <- plot_ly(x = subset(SalesPop,borough == "Manhattan")[,2], y=subset(SalesPop,borough == "Manhattan")[,5]/subset(SalesPop,borough == "Manhattan")[,4], opacity = 0.6, mode = "markers",xlim=c(0,5)) %>%
+  add_trace(x = subset(SalesPop,borough == "Bronx")[,2],y=subset(SalesPop,borough == "Bronx")[,5]/subset(SalesPop,borough == "Bronx")[,4]) %>%
+  add_trace(x = subset(SalesPop,borough == "Queens")[,2],y=subset(SalesPop,borough == "Queens")[,5]/subset(SalesPop,borough == "Queens")[,4]) %>%
+  add_trace(x = subset(SalesPop,borough == "Brooklyn")[,2],y=subset(SalesPop,borough == "Brooklyn")[,5]/subset(SalesPop,borough == "Brooklyn")[,4]) %>%
+  add_trace(x = subset(SalesPop,borough == "Staten Island")[,2],y=subset(SalesPop,borough == "Staten Island")[,5]/subset(SalesPop,borough == "Staten Island")[,4]) %>%
+  layout(barmode="overlay")
+```
+From this plot we can see that the relationship has some change, although Manhattan has a higher number of public restrooms in total, the number that everyone can own is almost the same as that in other boroughs. The same situation happens in Brooklyn, where the number of toilets : population is pretty low. We can make an inference that it is harder for people in these two boroughs to use the toilet as easy and quick as possible.
+
+On the contrary, some areas in Queens has a higher ratio above, which might be the case that they have relatively lower population, so the chance for waiting in line or failing in finding a public restroom is a lot lower than in other boroughs.
+
+
+Naturally, we come to think about the reasons that caused this. We chose two major factors to investigate on their relationships, which are population and the income levels.
+
+Due to the lack of data, we cannot really know what the average income level of a certain area is. Howevera, since we are just comparing the difference between areas, we can use another factor to substitute it, as long as this factor is proportional to the income level. The substite factor that we use is the average sales price of houses in the area, which is avalable on the internet.
+
+
+```{r}
+library(plotly)
+# note how size is automatically scaled and added as hover text]
+plot5 <- plot_ly(x = SalesPop$sales , y = SalesPop$population,  plot_bgcolor="blue", size =SalesPop$NumberofRestrooms/SalesPop$population  , color=SalesPop$borough, mode = "markers")
+```
+
+
+As we discussed before, it makes more sense to see the number of restrooms that everyone can ow.
+```{r}
+library(plotly)
+# note how size is automatically scaled and added as hover text]
+plot6 <- plot_ly(x = SalesPop$sales , y = SalesPop$population,  plot_bgcolor="blue", size =SalesPop$NumberofRestrooms/SalesPop$population  , color=SalesPop$borough, mode = "markers")
+
+```
+
+It turns out that the higher the housing price is, the less restroom every person owns, indicates that the more the higher the population, the less part of the restrooms a man can own, which might be because there are less place for public facilities in higher housing price areas, and it costs higher to build public restrooms in these areas.
+
+, which indicates that it's harder to use the toilet in places like CBD or CVD. 
+
+On the other hand, the higher the population the less restroom a man can own, which means that it is harder to use the public restrooms in high population areas, such as places of interests, terminals (wait in a long line) and so on.
+
+
+
+
+So now we try to figure out a resonable explaination of the distribution above.
+Here we choose some factors that interest us: population of every borough, gdp of every borough, we draw a scatterplot matrix at first, and then get rid of the factors that doesn't show strong coorelation with the density of the toilet.
+
+
+To sum up, we find a genral pattern for the distribution of the public restrooms in NYC, and also the problems that reflct from this pattern.From our investigation on the data above, we stronly suggest the local government in Queens and Brooklyn to build more public restrooms in the areas where housing price is low and population is high.
+
+Above is our analysis of the restroom data, since we have already known well about the relationship between factors, we might want to take advantage of it. Thus, we created a recommendation system for people outdoors in NYC, by inputing some key factors we have mentioned above, we can help the user to go to the most satisfying restroom as quick as possible.
+
+We call our app: Way2Go.
+
