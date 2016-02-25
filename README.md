@@ -30,4 +30,4 @@ proj/
 ```
 ![screenshot](https://github.com/TZstatsADS/project2-group10/blob/master/output/Screen.Shot.2016-02-25.at.6.39.24.PM.jpg)
 ![screenshot](https://github.com/TZstatsADS/project2-group10/blob/master/output/Screen.Shot.2016-02-25.at.6.39.29.PM.jpg)
-![screenshot](https://github.com/TZstatsADS/project2-group10/blob/master/output/Screen.Shot.2016-02-25.at.6.44.19.PM.jpg)
+![screenshot](https://github.com/TZstatsADS/project2-group10/blob/master/output/Screen.Shot.2016-02-25.at.6.53.53.PM.jpg)
