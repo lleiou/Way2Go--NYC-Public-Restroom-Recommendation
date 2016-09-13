@@ -35,4 +35,4 @@ proj/
 -
 
 ![The_Busboy](https://github.com/lleiou/Way2Go--NYC-Public-Restroom-Recommendation/blob/master/output/Screen%20Shot%202016-09-12%20at%2010.41.00%20PM.jpg)
-![The_Busboy](https://github.com/lleiou/Way2Go--NYC-Public-Restroom-Recommendation/blob/master/output/Screen%20Shot%202016-09-12%20at%2010.40.34%20PM.jpg=250)
+![The_Busboy](https://github.com/lleiou/Way2Go--NYC-Public-Restroom-Recommendation/blob/master/output/Screen%20Shot%202016-09-12%20at%2010.40.34%20PM.jpg)
