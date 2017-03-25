@@ -1,4 +1,4 @@
-# Project 2 Open Data NYC
+# Open Data NYC
 
 ##Group Members
 Lapointe Jameson, Nicole Marie: nml2145
